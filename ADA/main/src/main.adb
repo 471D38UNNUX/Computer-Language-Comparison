@@ -56,7 +56,7 @@ begin
    Size           := Ada.Directories.Size("main.exe");
    Put_Line("Total Cycles " & Cycles'Image);
    Put("Time taken: " & Unsigned_Long_Long_Integer(Unsigned_Long_Long_Integer(elapsedTime) / 3600)'Image & " hours " & Unsigned_Long_Long_Integer(Unsigned_Long_Long_Integer(elapsedTime) mod 3600 / 60)'Image & " minutes ");
-   Put(elapsedTime - Long_Float(Unsigned_Long_Long_Integer(elapsedTime)), 1, 6, 0);
+   Put(Long_Float(Unsigned_Long_Long_Integer(elapsedTime) mod 60) + elapsedTime - Long_Float(Unsigned_Long_Long_Integer(elapsedTime)), 1, 6, 0);
    Put_Line(" seconds");
    Put("Approx CPU frequency: ");
    Put(Long_Float(Cycles) / elapsedTime / 1.0e9, 1, 6, 0);
