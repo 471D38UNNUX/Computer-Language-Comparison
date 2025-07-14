@@ -11,7 +11,7 @@ procedure Main is
    elapsedTime                      : Long_Float;
    type Unsigned_Long_Long_Integer  is mod 2 ** 64;
    type Unsigned_Integer            is mod 2 ** 32;
-   st, et, Cycles, i                : Unsigned_Long_Long_Integer := 0;
+   st, et, Cycles, i                : Unsigned_Long_Long_Integer;
    Size                             : File_Size;
    KB                               : constant Long_Float := 1024.0;
    MB                               : constant Long_Float := KB * 1024.0;
@@ -55,8 +55,8 @@ begin
    elapsedTime    := Long_Float(finish.tv_sec - start.tv_sec) + Long_Float(finish.tv_nsec - start.tv_nsec) / 1000000000.0;
    Size           := Ada.Directories.Size("main.exe");
    Put_Line("Total Cycles " & Cycles'Image);
-   Put("Time taken: ");
-   Put(elapsedTime, 1, 6, 0);
+   Put("Time taken: " & Unsigned_Long_Long_Integer(Unsigned_Long_Long_Integer(elapsedTime) / 3600)'Image & " hours " & Unsigned_Long_Long_Integer(Unsigned_Long_Long_Integer(elapsedTime) mod 3600 / 60)'Image & " minutes ");
+   Put(elapsedTime - Long_Float(Unsigned_Long_Long_Integer(elapsedTime)), 1, 6, 0);
    Put_Line(" seconds");
    Put("Approx CPU frequency: ");
    Put(Long_Float(Cycles) / elapsedTime / 1.0e9, 1, 6, 0);
