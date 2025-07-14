@@ -42,7 +42,7 @@ begin
    start.tv_sec   := counter / frequency;
    start.tv_nsec  := Integer((counter mod frequency) * 1000000000 / frequency);
    loop
-      exit     when i = Unsigned_Long_Long_Integer'Last;
+      exit     when i = 100000;
       st       := rdtscpf;
       et       := rdtscpf - st;
       Cycles   := Cycles + et;
