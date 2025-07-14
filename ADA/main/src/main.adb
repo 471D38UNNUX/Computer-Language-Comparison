@@ -16,8 +16,8 @@ procedure Main is
    KB                               : constant Long_Float := 1024.0;
    MB                               : constant Long_Float := KB * 1024.0;
    GB                               : constant Long_Float := MB * 1024.0;
-   function QueryPerformanceFrequency(lpFrequency : Long_Long_Integer_Pointer) return Integer;
-   function QueryPerformanceCounter(lpPerformanceCount : Long_Long_Integer_Pointer) return Integer;
+   function QueryPerformanceFrequency(lpFrequency : Long_Long_Integer_Pointer) return Boolean;
+   function QueryPerformanceCounter(lpPerformanceCount : Long_Long_Integer_Pointer) return Boolean;
    procedure ExitProcess(uExitCode : Unsigned_Integer);
    pragma Import(StdCall, QueryPerformanceCounter, "QueryPerformanceCounter");
    pragma Import(StdCall, QueryPerformanceFrequency, "QueryPerformanceFrequency");
@@ -37,7 +37,7 @@ procedure Main is
       return   output;
    end rdtscpf;
 begin
-   if             (QueryPerformanceFrequency(frequency'Access) = 0 and QueryPerformanceCounter(counter'Access) = 0) then ExitProcess(1);
+   if             not (QueryPerformanceFrequency(frequency'Access) and QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
    end            if;
    start.tv_sec   := counter / frequency;
    start.tv_nsec  := Integer((counter mod frequency) * 1000000000 / frequency);
@@ -48,7 +48,7 @@ begin
       Cycles   := Cycles + et;
       i        := i + 1;
    end            loop;
-   if             QueryPerformanceCounter(counter'Access) = 0 then ExitProcess(1);
+   if             not (QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
    end            if;
    finish.tv_sec  := counter / frequency;
    finish.tv_nsec := Integer((counter mod frequency) * 1000000000 / frequency);
