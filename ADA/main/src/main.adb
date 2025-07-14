@@ -53,7 +53,7 @@ begin
    finish.tv_sec  := counter / frequency;
    finish.tv_nsec := Integer((counter mod frequency) * 1000000000 / frequency);
    elapsedTime    := Long_Float(finish.tv_sec - start.tv_sec) + Long_Float(finish.tv_nsec - start.tv_nsec) / 1000000000.0;
-   Size           := Ada.Directories.Size("bin/main.exe");
+   Size           := Ada.Directories.Size("main.exe");
    Put_Line("Total Cycles " & Cycles'Image);
    Put("Time taken: ");
    Put(elapsedTime, 1, 6, 0);
