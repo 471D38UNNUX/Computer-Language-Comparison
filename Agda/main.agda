@@ -1,14 +1,12 @@
 module main where
-open import Agda.Builtin.IO
-open import Agda.Builtin.Unit
-open import Agda.Builtin.String 
-open import Agda.Builtin.Nat
-open import Agda.Builtin.Int
-open import Agda.Builtin.Bool
-open import Agda.Builtin.Float
-open import Agda.Builtin.Char
-open import Agda.Builtin.List
-open import Agda.Builtin.Maybe
+open import Agda.Builtin.IO using (IO)
+open import Agda.Builtin.Unit using (⊤)
+open import Agda.Builtin.String using (String; primShowNat)
+open import Agda.Builtin.Nat using (Nat; zero; suc; _*_)
+open import Agda.Builtin.Int using (Int; primShowInteger)
+open import Agda.Builtin.Bool using (Bool; true; false)
+open import Agda.Builtin.Float using (Float; primNatToFloat; primFloatMinus; primFloatDiv; primIntToFloat; primFloatPlus)
+open import Agda.Builtin.Maybe using (Maybe; just; nothing)
 record timespec : Set where
   field
     tv_sec tv_nsec : Int
@@ -56,7 +54,7 @@ MB : Float
 MB = primNatToFloat (1024 * 1024)
 GB : Float
 GB = primNatToFloat (1024 * 1024 * 1024)
-{-# FOREIGN GHC import qualified Data.Text.IO as Text #-}
+{-# FOREIGN GHC import qualified Data.Text.IO #-}
 {-# FOREIGN GHC import qualified FFI #-}
 {-# COMPILE GHC bind = \_ _ _ _ m f -> m >>= f #-}
 {-# COMPILE GHC _++_ = Data.Text.append #-}
@@ -69,7 +67,7 @@ GB = primNatToFloat (1024 * 1024 * 1024)
 {-# COMPILE GHC _-i_ = (-) #-}
 {-# COMPILE GHC primFloatge = (>=) #-}
 {-# COMPILE GHC return = \_ _ -> return #-}
-{-# COMPILE GHC putStrLn = Text.putStrLn #-}
+{-# COMPILE GHC putStrLn = Data.Text.IO.putStrLn #-}
 {-# COMPILE GHC formatFloat6 = FFI.formatFloat6 #-}
 {-# COMPILE GHC formatFloat3 = FFI.formatFloat3 #-}
 {-# COMPILE GHC getFileSize = FFI._getFileSize #-}
@@ -95,7 +93,7 @@ main            =
     resultWith  _ _ _ nothing = ExitProcess 1
     resultWith  frequency Cycles elapsedTime (just Size) =
       putStrLn("Total Cycles " ++ primShowInteger Cycles) >>
-      putStrLn(((((("Time taken: " ++ primShowNat((primFloatToNat elapsedTime) div 3600)) ++ " hours ") ++ primShowNat(((primFloatToNat elapsedTime) mod 3600) div 60)) ++ " minutes ") ++ primShowFloat(primFloatMinus elapsedTime (primNatToFloat(primFloatToNat elapsedTime)))) ++ " seconds") >>
+      putStrLn(((((("Time taken: " ++ primShowNat((primFloatToNat elapsedTime) div 3600)) ++ " hours ") ++ primShowNat(((primFloatToNat elapsedTime) mod 3600) div 60)) ++ " minutes ") ++ formatFloat6(primFloatMinus elapsedTime (primNatToFloat(primFloatToNat elapsedTime)))) ++ " seconds") >>
       putStrLn(("Approx CPU frequency: " ++ formatFloat6(primFloatDiv(primFloatDiv(primIntToFloat Cycles) elapsedTime) 1.0e9)) ++ " GHz") >>
       if          primFloatge(primNatToFloat Size) GB then putStrLn(("File size: " ++ formatFloat3(primFloatDiv(primNatToFloat Size) GB)) ++ " GB")
       else if     primFloatge(primNatToFloat Size) MB then putStrLn(("File size: " ++ formatFloat3(primFloatDiv(primNatToFloat Size) MB)) ++ " MB")

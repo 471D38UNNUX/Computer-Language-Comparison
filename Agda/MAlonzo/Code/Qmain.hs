@@ -27,7 +27,7 @@ import qualified MAlonzo.Code.Agda.Builtin.String
 import qualified MAlonzo.Code.Agda.Builtin.Unit
 import qualified MAlonzo.Code.Agda.Primitive
 
-import qualified Data.Text.IO as Text
+import qualified Data.Text.IO
 import qualified FFI
 -- main.timespec
 d_timespec_2 = ()
@@ -103,7 +103,7 @@ d_putStrLn_48 ::
   MAlonzo.Code.Agda.Builtin.String.T_String_6 ->
   MAlonzo.Code.Agda.Builtin.IO.T_IO_8
     () MAlonzo.Code.Agda.Builtin.Unit.T_'8868'_6
-d_putStrLn_48 = Text.putStrLn
+d_putStrLn_48 = Data.Text.IO.putStrLn
 -- main.formatFloat6
 d_formatFloat6_50 ::
   MAlonzo.Code.Agda.Builtin.Float.T_Float_6 ->
@@ -346,7 +346,7 @@ du_resultWith_144 v0 v1 v2
                                            (60 :: Integer))))
                                   (" minutes " :: Data.Text.Text))
                                (coe
-                                  MAlonzo.Code.Agda.Builtin.Float.d_primShowFloat_46
+                                  d_formatFloat6_50
                                   (coe
                                      MAlonzo.Code.Agda.Builtin.Float.d_primFloatMinus_50 v1
                                      (coe
