@@ -85,8 +85,8 @@ main            =
     bind  rdtscpf λ st →
     bind  rdtscpf λ et →
     return((total +i et) -i st))) λ Cycles →
-  bind  QueryPerformanceCounter λ counter →
-  let end = record {tv_sec  = primNatToInt(counter div frequency); tv_nsec = primNatToInt((counter mod frequency * 1000000000) div frequency)} in
+  bind            QueryPerformanceCounter λ counter →
+  let end         = record {tv_sec  = primNatToInt(counter div frequency); tv_nsec = primNatToInt((counter mod frequency * 1000000000) div frequency)} in
   let elapsedTime = primFloatPlus(primIntToFloat(timespec.tv_sec end -i timespec.tv_sec start)) (primFloatDiv(primIntToFloat(timespec.tv_nsec end -i timespec.tv_nsec start)) 1000000000.0) in
   bind(getFileSize "main.exe") λ result → resultWith frequency Cycles elapsedTime result where
     resultWith  : Nat → Int → Float → Maybe Nat → IO ⊤
