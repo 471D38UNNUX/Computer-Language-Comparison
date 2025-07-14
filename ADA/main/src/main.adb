@@ -44,9 +44,9 @@ begin
    loop
       exit     when i = Unsigned_Long_Long_Integer'Last;
       st       := rdtscpf;
-      i        := i + 1;
       et       := rdtscpf - st;
       Cycles   := Cycles + et;
+      i        := i + 1;
    end            loop;
    if             QueryPerformanceCounter(counter'Access) = 0 then ExitProcess(1);
    end            if;
