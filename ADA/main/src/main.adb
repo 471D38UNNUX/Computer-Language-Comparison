@@ -76,5 +76,5 @@ begin
    else           Put_Line("File size: " & Size'Image & " bytes");
    end if;
    ExitProcess(0);
-   exception      when Ada.Directories.Name_Error | Ada.Text_IO.Name_Error => ExitProcess(1);
+   exception      when Ada.Directories.Name_Error => ExitProcess(1);
 end Main;
