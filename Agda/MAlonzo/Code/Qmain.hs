@@ -67,13 +67,13 @@ d__'43''43'__24 = Data.Text.append
 -- main.primNatToInt
 d_primNatToInt_26 :: Integer -> Integer
 d_primNatToInt_26 = fromIntegral
+-- main.primIntToNat
+d_primIntToNat_28 :: Integer -> Integer
+d_primIntToNat_28 = \x -> max 0 x
 -- main.primFloatToNat
-d_primFloatToNat_28 ::
+d_primFloatToNat_30 ::
   MAlonzo.Code.Agda.Builtin.Float.T_Float_6 -> Integer
-d_primFloatToNat_28 = \x -> max 0 (floor x)
--- main.int0
-d_int0_30 :: Integer
-d_int0_30 = 0
+d_primFloatToNat_30 = \x -> max 0 (floor x)
 -- main._div_
 d__div__32 :: Integer -> Integer -> Integer
 d__div__32 = \x y -> x `div` y
@@ -122,11 +122,13 @@ d_getFileSize_54 ::
 d_getFileSize_54 = FFI._getFileSize
 -- main.QueryPerformanceFrequency
 d_QueryPerformanceFrequency_56 ::
-  MAlonzo.Code.Agda.Builtin.IO.T_IO_8 () Integer
+  MAlonzo.Code.Agda.Builtin.IO.T_IO_8
+    () (MAlonzo.Code.Agda.Builtin.Maybe.T_Maybe_10 () Integer)
 d_QueryPerformanceFrequency_56 = FFI.queryPerformanceFrequency
 -- main.QueryPerformanceCounter
 d_QueryPerformanceCounter_58 ::
-  MAlonzo.Code.Agda.Builtin.IO.T_IO_8 () Integer
+  MAlonzo.Code.Agda.Builtin.IO.T_IO_8
+    () (MAlonzo.Code.Agda.Builtin.Maybe.T_Maybe_10 () Integer)
 d_QueryPerformanceCounter_58 = FFI.queryPerformanceCounter
 -- main.rdtscpf
 d_rdtscpf_60 :: MAlonzo.Code.Agda.Builtin.IO.T_IO_8 () Integer
@@ -223,84 +225,150 @@ d_main_138 ::
 d_main_138
   = coe
       d_bind_22 () () erased erased d_QueryPerformanceFrequency_56
-      (\ v0 ->
-         coe
-           d_bind_22 () () erased erased d_QueryPerformanceCounter_58
-           (\ v1 ->
-              coe
-                d_bind_22 () () erased erased d_rdtscpf_60
-                (\ v2 ->
-                   coe
-                     d_bind_22 () () erased erased
-                     (d_forlr_86
-                        (coe (0 :: Integer)) (coe (100000 :: Integer)) (coe d_int0_30)
-                        (coe
-                           (\ v3 v4 ->
-                              coe
-                                d_bind_22 () () erased erased d_rdtscpf_60
-                                (\ v5 ->
-                                   coe
-                                     d_bind_22 () () erased erased d_rdtscpf_60
-                                     (\ v6 ->
-                                        coe
-                                          d_return_46 () erased
-                                          (coe d__'45'i__38 (coe d__'43'i__36 v4 v6) v5))))))
-                     (\ v3 ->
-                        coe
-                          d_bind_22 () () erased erased d_QueryPerformanceCounter_58
-                          (\ v4 ->
-                             coe
-                               d_bind_22 () () erased erased
-                               (coe d_getFileSize_54 ("main.exe" :: Data.Text.Text))
-                               (coe
-                                  du_resultWith_144 (coe v3)
+      d_lpFrequency_144
+-- main._.lpFrequency
+d_lpFrequency_144 ::
+  Maybe Integer ->
+  MAlonzo.Code.Agda.Builtin.IO.T_IO_8
+    AgdaAny MAlonzo.Code.Agda.Builtin.Unit.T_'8868'_6
+d_lpFrequency_144 v0
+  = case coe v0 of
+      MAlonzo.Code.Agda.Builtin.Maybe.C_just_16 v1
+        -> coe
+             d_bind_22 () () erased erased d_QueryPerformanceCounter_58
+             (coe du_lpPerformanceCount_152 (coe v1))
+      MAlonzo.Code.Agda.Builtin.Maybe.C_nothing_18
+        -> coe d_ExitProcess_62 (1 :: Integer)
+      _ -> MAlonzo.RTE.mazUnreachableError
+-- main._._.lpPerformanceCount
+d_lpPerformanceCount_152 ::
+  Integer ->
+  Integer ->
+  Maybe Integer ->
+  MAlonzo.Code.Agda.Builtin.IO.T_IO_8
+    AgdaAny MAlonzo.Code.Agda.Builtin.Unit.T_'8868'_6
+d_lpPerformanceCount_152 ~v0 v1 v2
+  = du_lpPerformanceCount_152 v1 v2
+du_lpPerformanceCount_152 ::
+  Integer ->
+  Maybe Integer ->
+  MAlonzo.Code.Agda.Builtin.IO.T_IO_8
+    AgdaAny MAlonzo.Code.Agda.Builtin.Unit.T_'8868'_6
+du_lpPerformanceCount_152 v0 v1
+  = case coe v1 of
+      MAlonzo.Code.Agda.Builtin.Maybe.C_just_16 v2
+        -> coe
+             d_bind_22 () () erased erased
+             (d_forlr_86
+                (coe (0 :: Integer)) (coe (100000 :: Integer)) (coe (0 :: Integer))
+                (coe
+                   (\ v3 v4 ->
+                      coe
+                        d_bind_22 () () erased erased d_rdtscpf_60
+                        (\ v5 ->
+                           coe
+                             d_bind_22 () () erased erased d_rdtscpf_60
+                             (\ v6 ->
+                                coe
+                                  d_return_46 () erased
                                   (coe
-                                     MAlonzo.Code.Agda.Builtin.Float.d_primFloatPlus_48
-                                     (coe
-                                        MAlonzo.Code.Agda.Builtin.Float.d_primIntToFloat_26
-                                        (coe
-                                           d__'45'i__38
-                                           (coe d_primNatToInt_26 (coe d__div__32 v4 v0))
-                                           (coe d_primNatToInt_26 (coe d__div__32 v1 v0))))
-                                     (coe
-                                        MAlonzo.Code.Agda.Builtin.Float.d_primFloatDiv_54
-                                        (coe
-                                           MAlonzo.Code.Agda.Builtin.Float.d_primIntToFloat_26
-                                           (coe
-                                              d__'45'i__38
-                                              (coe
-                                                 d_primNatToInt_26
-                                                 (coe
-                                                    d__div__32
-                                                    (mulInt
-                                                       (coe d__mod__34 v4 v0)
-                                                       (coe (1000000000 :: Integer)))
-                                                    v0))
-                                              (coe
-                                                 d_primNatToInt_26
-                                                 (coe
-                                                    d__div__32
-                                                    (mulInt
-                                                       (coe d__mod__34 v1 v0)
-                                                       (coe (1000000000 :: Integer)))
-                                                    v0))))
-                                        (1.0e9 :: Double)))))))))
--- main._.resultWith
-d_resultWith_144 ::
+                                     MAlonzo.Code.Agda.Builtin.Nat.d__'45'__22
+                                     (addInt (coe v4) (coe v6)) v5))))))
+             (\ v3 ->
+                coe
+                  d_bind_22 () () erased erased d_QueryPerformanceCounter_58
+                  (\ v4 ->
+                     coe
+                       d_bind_22 () () erased erased d_QueryPerformanceCounter_58
+                       (coe
+                          du_PerformanceCount_162 (coe v0)
+                          (coe
+                             C_constructor_12 (coe d_primNatToInt_26 (coe d__div__32 v2 v0))
+                             (coe
+                                d_primNatToInt_26
+                                (coe
+                                   d__div__32
+                                   (mulInt (coe d__mod__34 v2 v0) (coe (1000000000 :: Integer)))
+                                   v0)))
+                          (coe v3))))
+      MAlonzo.Code.Agda.Builtin.Maybe.C_nothing_18
+        -> coe d_ExitProcess_62 (1 :: Integer)
+      _ -> MAlonzo.RTE.mazUnreachableError
+-- main._._._.PerformanceCount
+d_PerformanceCount_162 ::
+  Integer ->
+  Integer ->
+  Integer ->
+  Integer ->
+  T_timespec_2 ->
+  Integer ->
+  Maybe Integer ->
+  MAlonzo.Code.Agda.Builtin.IO.T_IO_8
+    AgdaAny MAlonzo.Code.Agda.Builtin.Unit.T_'8868'_6
+d_PerformanceCount_162 ~v0 ~v1 ~v2 v3 v4 v5 v6
+  = du_PerformanceCount_162 v3 v4 v5 v6
+du_PerformanceCount_162 ::
+  Integer ->
+  T_timespec_2 ->
+  Integer ->
+  Maybe Integer ->
+  MAlonzo.Code.Agda.Builtin.IO.T_IO_8
+    AgdaAny MAlonzo.Code.Agda.Builtin.Unit.T_'8868'_6
+du_PerformanceCount_162 v0 v1 v2 v3
+  = case coe v3 of
+      MAlonzo.Code.Agda.Builtin.Maybe.C_just_16 v4
+        -> coe
+             d_bind_22 () () erased erased
+             (coe d_getFileSize_54 ("main.exe" :: Data.Text.Text))
+             (coe
+                du_resultWith_176 (coe v2)
+                (coe
+                   MAlonzo.Code.Agda.Builtin.Float.d_primFloatPlus_48
+                   (coe
+                      MAlonzo.Code.Agda.Builtin.Float.d_primIntToFloat_26
+                      (coe
+                         d__'45'i__38 (coe d_primNatToInt_26 (coe d__div__32 v4 v0))
+                         (d_tv_sec_8 (coe v1))))
+                   (coe
+                      MAlonzo.Code.Agda.Builtin.Float.d_primFloatDiv_54
+                      (coe
+                         MAlonzo.Code.Agda.Builtin.Float.d_primIntToFloat_26
+                         (coe
+                            d__'45'i__38
+                            (coe
+                               d_primNatToInt_26
+                               (coe
+                                  d__div__32
+                                  (mulInt (coe d__mod__34 v4 v0) (coe (1000000000 :: Integer))) v0))
+                            (d_tv_nsec_10 (coe v1))))
+                      (1.0e9 :: Double))))
+      MAlonzo.Code.Agda.Builtin.Maybe.C_nothing_18
+        -> coe d_ExitProcess_62 (1 :: Integer)
+      _ -> MAlonzo.RTE.mazUnreachableError
+-- main._._._._.resultWith
+d_resultWith_176 ::
+  Integer ->
+  Integer ->
+  Integer ->
+  Integer ->
+  T_timespec_2 ->
+  Integer ->
+  Integer ->
   Integer ->
   Integer ->
   MAlonzo.Code.Agda.Builtin.Float.T_Float_6 ->
   Maybe Integer ->
   MAlonzo.Code.Agda.Builtin.IO.T_IO_8
     AgdaAny MAlonzo.Code.Agda.Builtin.Unit.T_'8868'_6
-d_resultWith_144 ~v0 v1 v2 v3 = du_resultWith_144 v1 v2 v3
-du_resultWith_144 ::
+d_resultWith_176 ~v0 ~v1 ~v2 ~v3 ~v4 ~v5 ~v6 ~v7 v8 v9 v10
+  = du_resultWith_176 v8 v9 v10
+du_resultWith_176 ::
   Integer ->
   MAlonzo.Code.Agda.Builtin.Float.T_Float_6 ->
   Maybe Integer ->
   MAlonzo.Code.Agda.Builtin.IO.T_IO_8
     AgdaAny MAlonzo.Code.Agda.Builtin.Unit.T_'8868'_6
-du_resultWith_144 v0 v1 v2
+du_resultWith_176 v0 v1 v2
   = case coe v2 of
       MAlonzo.Code.Agda.Builtin.Maybe.C_just_16 v3
         -> coe
@@ -315,7 +383,7 @@ du_resultWith_144 v0 v1 v2
                          d_putStrLn_48
                          (coe
                             d__'43''43'__24 ("Total Cycles " :: Data.Text.Text)
-                            (coe MAlonzo.Code.Agda.Builtin.Int.d_primShowInteger_16 v0)))
+                            (coe MAlonzo.Code.Agda.Builtin.String.d_primShowNat_24 v0)))
                       (coe
                          d_putStrLn_48
                          (coe
@@ -333,7 +401,7 @@ du_resultWith_144 v0 v1 v2
                                            (coe
                                               MAlonzo.Code.Agda.Builtin.String.d_primShowNat_24
                                               (coe
-                                                 d__div__32 (coe d_primFloatToNat_28 v1)
+                                                 d__div__32 (coe d_primFloatToNat_30 v1)
                                                  (3600 :: Integer))))
                                         (" hours " :: Data.Text.Text))
                                      (coe
@@ -341,7 +409,7 @@ du_resultWith_144 v0 v1 v2
                                         (coe
                                            d__div__32
                                            (coe
-                                              d__mod__34 (coe d_primFloatToNat_28 v1)
+                                              d__mod__34 (coe d_primFloatToNat_30 v1)
                                               (3600 :: Integer))
                                            (60 :: Integer))))
                                   (" minutes " :: Data.Text.Text))
@@ -351,7 +419,7 @@ du_resultWith_144 v0 v1 v2
                                      MAlonzo.Code.Agda.Builtin.Float.d_primFloatMinus_50 v1
                                      (coe
                                         MAlonzo.Code.Agda.Builtin.Float.d_primNatToFloat_24
-                                        (coe d_primFloatToNat_28 v1)))))
+                                        (coe d_primFloatToNat_30 v1)))))
                             (" seconds" :: Data.Text.Text))))
                    (coe
                       d_putStrLn_48
@@ -365,7 +433,7 @@ du_resultWith_144 v0 v1 v2
                                   MAlonzo.Code.Agda.Builtin.Float.d_primFloatDiv_54
                                   (coe
                                      MAlonzo.Code.Agda.Builtin.Float.d_primFloatDiv_54
-                                     (coe MAlonzo.Code.Agda.Builtin.Float.d_primIntToFloat_26 v0)
+                                     (coe MAlonzo.Code.Agda.Builtin.Float.d_primNatToFloat_24 v0)
                                      v1)
                                   (1.0e9 :: Double))))
                          (" GHz" :: Data.Text.Text))))

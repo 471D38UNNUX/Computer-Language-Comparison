@@ -2,7 +2,7 @@ module main where
 open import Agda.Builtin.IO using (IO)
 open import Agda.Builtin.Unit using (⊤)
 open import Agda.Builtin.String using (String; primShowNat)
-open import Agda.Builtin.Nat using (Nat; zero; suc; _*_)
+open import Agda.Builtin.Nat using (Nat; zero; suc; _*_; _+_; _-_)
 open import Agda.Builtin.Int using (Int; primShowInteger)
 open import Agda.Builtin.Bool using (Bool; true; false)
 open import Agda.Builtin.Float using (Float; primNatToFloat; primFloatMinus; primFloatDiv; primIntToFloat; primFloatPlus)
@@ -14,8 +14,8 @@ postulate
   bind                      : ∀ {a b} {A : Set a} {B : Set b} → IO A → (A → IO B) → IO B
   _++_                      : String → String → String
   primNatToInt              : Nat → Int
+  primIntToNat              : Int → Nat
   primFloatToNat            : Float → Nat
-  int0                      : Int
   _div_                     : Nat → Nat → Nat
   _mod_                     : Nat → Nat → Nat
   _+i_                      : Int → Int → Int
@@ -26,9 +26,9 @@ postulate
   formatFloat6              : Float → String
   formatFloat3              : Float → String
   getFileSize               : String → IO (Maybe Nat)
-  QueryPerformanceFrequency : IO Nat
-  QueryPerformanceCounter   : IO Nat
-  rdtscpf                   : IO Int
+  QueryPerformanceFrequency : IO (Maybe Nat)
+  QueryPerformanceCounter   : IO (Maybe Nat)
+  rdtscpf                   : IO Nat
   ExitProcess               : Nat → IO ⊤
 infixl          1 _>>_
 _>>_            : ∀ {a b} {A : Set a} {B : Set b} → IO A → IO B → IO B
@@ -39,7 +39,7 @@ zero <ᵇ suc _   = true
 suc _ <ᵇ zero   = false
 suc a <ᵇ suc b  = a <ᵇ b
 {-# TERMINATING #-}
-forlr           : Nat → Nat → Int → (Nat → Int → IO Int) → IO Int
+forlr           : Nat → Nat → Nat → (Nat → Nat → IO Nat) → IO Nat
 forlr           start end acc f with start <ᵇ end
 ... | false     = return acc
 ... | true      =
@@ -59,8 +59,8 @@ GB = primNatToFloat (1024 * 1024 * 1024)
 {-# COMPILE GHC bind = \_ _ _ _ m f -> m >>= f #-}
 {-# COMPILE GHC _++_ = Data.Text.append #-}
 {-# COMPILE GHC primNatToInt = fromIntegral #-}
+{-# COMPILE GHC primIntToNat = \x -> max 0 x #-}
 {-# COMPILE GHC primFloatToNat = \x -> max 0 (floor x) #-}
-{-# COMPILE GHC int0 = 0 #-}
 {-# COMPILE GHC _div_ = \x y -> x `div` y #-}
 {-# COMPILE GHC _mod_ = \x y -> x `mod` y #-}
 {-# COMPILE GHC _+i_ = (+) #-}
@@ -77,27 +77,35 @@ GB = primNatToFloat (1024 * 1024 * 1024)
 {-# COMPILE GHC ExitProcess = FFI.exitProcess #-}
 main            : IO ⊤
 main            =
-  bind            QueryPerformanceFrequency λ frequency →
-  bind            QueryPerformanceCounter λ counter →
-  bind            rdtscpf λ ticks →
-  let             start = record {tv_sec  = primNatToInt (counter div frequency); tv_nsec = primNatToInt ((counter mod frequency * 1000000000) div frequency)} in
-  bind(forlr 0 100000 int0(λ a total →
-    bind  rdtscpf λ st →
-    bind  rdtscpf λ et →
-    return((total +i et) -i st))) λ Cycles →
-  bind            QueryPerformanceCounter λ counter →
-  let end         = record {tv_sec  = primNatToInt(counter div frequency); tv_nsec = primNatToInt((counter mod frequency * 1000000000) div frequency)} in
-  let elapsedTime = primFloatPlus(primIntToFloat(timespec.tv_sec end -i timespec.tv_sec start)) (primFloatDiv(primIntToFloat(timespec.tv_nsec end -i timespec.tv_nsec start)) 1000000000.0) in
-  bind(getFileSize "main.exe") λ result → resultWith frequency Cycles elapsedTime result where
-    resultWith  : Nat → Int → Float → Maybe Nat → IO ⊤
-    resultWith  _ _ _ nothing = ExitProcess 1
-    resultWith  frequency Cycles elapsedTime (just Size) =
-      putStrLn("Total Cycles " ++ primShowInteger Cycles) >>
-      putStrLn(((((("Time taken: " ++ primShowNat((primFloatToNat elapsedTime) div 3600)) ++ " hours ") ++ primShowNat(((primFloatToNat elapsedTime) mod 3600) div 60)) ++ " minutes ") ++ formatFloat6(primFloatMinus elapsedTime (primNatToFloat(primFloatToNat elapsedTime)))) ++ " seconds") >>
-      putStrLn(("Approx CPU frequency: " ++ formatFloat6(primFloatDiv(primFloatDiv(primIntToFloat Cycles) elapsedTime) 1.0e9)) ++ " GHz") >>
-      if          primFloatge(primNatToFloat Size) GB then putStrLn(("File size: " ++ formatFloat3(primFloatDiv(primNatToFloat Size) GB)) ++ " GB")
-      else if     primFloatge(primNatToFloat Size) MB then putStrLn(("File size: " ++ formatFloat3(primFloatDiv(primNatToFloat Size) MB)) ++ " MB")
-      else if     primFloatge(primNatToFloat Size) KB then putStrLn(("File size: " ++ formatFloat3(primFloatDiv(primNatToFloat Size) KB)) ++ " KB")
-      else        putStrLn(("File size: " ++ primShowNat Size) ++ " bytes") >>
-      ExitProcess 0
-
+  bind  QueryPerformanceFrequency λ result → lpFrequency result where
+    lpFrequency : Maybe Nat → IO ⊤
+    lpFrequency nothing = ExitProcess 1
+    lpFrequency (just frequency) =
+      bind  QueryPerformanceCounter λ result → lpPerformanceCount frequency result where
+        lpPerformanceCount  : Nat → Maybe Nat → IO ⊤
+        lpPerformanceCount  _ nothing = ExitProcess 1
+        lpPerformanceCount  frequency (just counter) =
+          let start = record {tv_sec  = primNatToInt(counter div frequency); tv_nsec = primNatToInt((counter mod frequency * 1000000000) div frequency)} in
+          bind (forlr 0 100000 0 (λ a total →
+            bind rdtscpf λ st →
+            bind rdtscpf λ et →
+            return(((total + et) - st)))) λ Cycles →
+          bind            QueryPerformanceCounter λ counter →
+            bind  QueryPerformanceCounter λ result → PerformanceCount frequency start Cycles result where
+              PerformanceCount  : Nat → timespec → Nat → Maybe Nat → IO ⊤
+              PerformanceCount  _ _ _ nothing = ExitProcess 1
+              PerformanceCount  frequency start Cycles (just counter) =
+                let end         = record {tv_sec  = primNatToInt(counter div frequency); tv_nsec = primNatToInt((counter mod frequency * 1000000000) div frequency)} in
+                let elapsedTime = primFloatPlus(primIntToFloat(timespec.tv_sec end -i timespec.tv_sec start)) (primFloatDiv(primIntToFloat(timespec.tv_nsec end -i timespec.tv_nsec start)) 1000000000.0) in
+                bind(getFileSize "main.exe") λ result → resultWith frequency Cycles elapsedTime result where
+                  resultWith  : Nat → Nat → Float → Maybe Nat → IO ⊤
+                  resultWith  _ _ _ nothing = ExitProcess 1
+                  resultWith  frequency Cycles elapsedTime (just Size) =
+                    putStrLn("Total Cycles " ++ primShowNat Cycles) >>
+                    putStrLn(((((("Time taken: " ++ primShowNat((primFloatToNat elapsedTime) div 3600)) ++ " hours ") ++ primShowNat(((primFloatToNat elapsedTime) mod 3600) div 60)) ++ " minutes ") ++ formatFloat6(primFloatMinus elapsedTime (primNatToFloat(primFloatToNat elapsedTime)))) ++ " seconds") >>
+                    putStrLn(("Approx CPU frequency: " ++ formatFloat6(primFloatDiv(primFloatDiv(primNatToFloat Cycles) elapsedTime) 1.0e9)) ++ " GHz") >>
+                    if          primFloatge(primNatToFloat Size) GB then putStrLn(("File size: " ++ formatFloat3(primFloatDiv(primNatToFloat Size) GB)) ++ " GB")
+                    else if     primFloatge(primNatToFloat Size) MB then putStrLn(("File size: " ++ formatFloat3(primFloatDiv(primNatToFloat Size) MB)) ++ " MB")
+                    else if     primFloatge(primNatToFloat Size) KB then putStrLn(("File size: " ++ formatFloat3(primFloatDiv(primNatToFloat Size) KB)) ++ " KB")
+                    else        putStrLn(("File size: " ++ primShowNat Size) ++ " bytes") >>
+                    ExitProcess 0
