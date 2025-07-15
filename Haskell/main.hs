@@ -1,3 +1,4 @@
+--  ghc -O3 main.hs RDTSCP.asm
 import Foreign(Ptr, Int64, peek)
 import Data.Word(Word64)
 import Foreign.Marshal.Alloc(alloca)
