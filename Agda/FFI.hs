@@ -12,30 +12,30 @@ foreign import ccall unsafe "QueryPerformanceCounter" _QueryPerformanceCounter :
 foreign import ccall unsafe "ExitProcess" _ExitProcess :: Word -> IO()
 foreign import ccall unsafe "rdtscpf" _rdtscpf :: IO Word64
 formatFloat6                :: Double -> Text
-formatFloat6 f              = pack (printf "%.6f" f)
+formatFloat6 f              = pack(printf "%.6f" f)
 formatFloat3                :: Double -> Text
-formatFloat3 f              = pack (printf "%.3f" f)
-_getFileSize :: Text -> IO (Maybe Integer)
+formatFloat3 f              = pack(printf "%.3f" f)
+_getFileSize :: Text -> IO(Maybe Integer)
 _getFileSize path =
     catchIOError
-        (fmap Just (getFileSize (unpack path)))
+        (fmap Just (getFileSize(unpack path)))
         (\_ -> pure Nothing)
-queryPerformanceFrequency   :: IO (Maybe Integer)
+queryPerformanceFrequency   :: IO(Maybe Integer)
 queryPerformanceFrequency   =
-    alloca $ \lpFrequency -> do
+    alloca  $ \lpFrequency -> do
     success <- _QueryPerformanceFrequency lpFrequency
     if      success
     then    do
         frequency   <- peek lpFrequency
-        return(Just (fromIntegral frequency))
+        return(Just(fromIntegral frequency))
     else    return Nothing
-queryPerformanceCounter     :: IO (Maybe Integer)
+queryPerformanceCounter     :: IO(Maybe Integer)
 queryPerformanceCounter     = alloca $ \lpPerformanceCount -> do
     success <- _QueryPerformanceCounter lpPerformanceCount
     if      success
     then    do
         counter <- peek lpPerformanceCount
-        return(Just (fromIntegral counter))
+        return(Just(fromIntegral counter))
     else    return Nothing
 rdtscpf                     :: IO Integer
 rdtscpf                     = fromIntegral <$> _rdtscpf
