@@ -1,3 +1,4 @@
+--  agda -c main.agda --ghc-flag=-O3 --ghc-flag=RDTSCP.asm
 module main where
 open import Agda.Builtin.IO using (IO)
 open import Agda.Builtin.Unit using (⊤)
