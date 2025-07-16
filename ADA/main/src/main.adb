@@ -11,7 +11,7 @@ procedure Main is
    elapsedTime                      : Long_Float;
    type Unsigned_Long_Long_Integer  is mod 2 ** 64;
    type Unsigned_Integer            is mod 2 ** 32;
-   st, et, Cycles, i                : Unsigned_Long_Long_Integer;
+   st, et, Cycles, i                : Unsigned_Long_Long_Integer := 0;
    Size                             : File_Size;
    KB                               : constant Long_Float := 1024.0;
    MB                               : constant Long_Float := KB * 1024.0;
