@@ -36,7 +36,7 @@ main    = alloca $ \lpFrequency -> do
         else    do
             frequency                   <- peek lpFrequency
             counter                     <- peek lpPerformanceCount
-            let start                   = TimeSpec (div (fromIntegral counter) (fromIntegral frequency)) (fromIntegral (div (mod counter frequency * 1000000000) frequency))
+            let time                    = TimeSpec (div (fromIntegral counter) (fromIntegral frequency)) (fromIntegral (div (mod counter frequency * 1000000000) frequency))
             cycles                      <- forlr 0 100000 0 $ \i total -> do
                 st  <- _rdtscpf
                 et  <- _rdtscpf
@@ -45,17 +45,16 @@ main    = alloca $ \lpFrequency -> do
             if          not result then _ExitProcess 1
             else    do
                 counter         <- peek lpPerformanceCount
-                let end         = TimeSpec (div (fromIntegral counter) (fromIntegral frequency)) (fromIntegral (div (mod counter frequency * 1000000000) frequency))
-                let elapsedTime = fromIntegral (tv_sec end - tv_sec start) + fromIntegral (tv_nsec end - tv_nsec start) / 1000000000.0 :: Double
+                let elapsedTime = fromIntegral (div (fromIntegral counter) (fromIntegral frequency) - tv_sec time) + fromIntegral (fromIntegral (div (mod counter frequency * 1000000000) frequency) - tv_nsec time) / 1000000000.0 :: Double
                 result          <- catchIOError (Just <$> getFileSize "main.exe") (\_ -> return Nothing)
                 case            result of
                     Nothing     -> _ExitProcess 1
                     Just size   -> do
-                        putStrLn("Total Cycles " ++ show cycles)
-                        putStrLn("Time taken: " ++ show (div (fromIntegral (truncate elapsedTime :: Word64)) 3600) ++ " hours " ++ show (div (mod (fromIntegral (truncate elapsedTime :: Word64)) 3600) 60) ++ " minutes " ++ show (formatFloat6 (elapsedTime - fromIntegral (truncate elapsedTime :: Word64))) ++ " seconds")
-                        putStrLn("Approx CPU frequency: " ++ show (formatFloat6 (fromIntegral cycles / elapsedTime / 1.0e9)) ++ " GHz")
-                        if              fromIntegral size >= gB then putStrLn("File size: " ++ show (formatFloat3 (fromIntegral size / gB)) ++ " GB")
-                        else if         fromIntegral size >= mB then putStrLn("File size: " ++ show (formatFloat3 (fromIntegral size / mB)) ++ " MB")
-                        else if         fromIntegral size >= kB then putStrLn("File size: " ++ show (formatFloat3 (fromIntegral size / kB)) ++ " KB")
-                        else            putStrLn("File size: " ++ show size ++ " bytes")
+                        putStrLn ("Total Cycles " ++ show cycles)
+                        putStrLn ("Time taken: " ++ show (div (fromIntegral (truncate elapsedTime :: Word64)) 3600) ++ " hours " ++ show (div (mod (fromIntegral (truncate elapsedTime :: Word64)) 3600) 60) ++ " minutes " ++ show (formatFloat6 (elapsedTime - fromIntegral (truncate elapsedTime :: Word64))) ++ " seconds")
+                        putStrLn ("Approx CPU frequency: " ++ show (formatFloat6 (fromIntegral cycles / elapsedTime / 1.0e9)) ++ " GHz")
+                        if              fromIntegral size >= gB then putStrLn ("File size: " ++ show (formatFloat3 (fromIntegral size / gB)) ++ " GB")
+                        else if         fromIntegral size >= mB then putStrLn ("File size: " ++ show (formatFloat3 (fromIntegral size / mB)) ++ " MB")
+                        else if         fromIntegral size >= kB then putStrLn ("File size: " ++ show (formatFloat3 (fromIntegral size / kB)) ++ " KB")
+                        else            putStrLn ("File size: " ++ show size ++ " bytes")
                         _ExitProcess    0
