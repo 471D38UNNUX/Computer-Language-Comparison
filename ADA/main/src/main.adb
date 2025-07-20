@@ -1,11 +1,11 @@
-with Ada.Directories, Ada.Text_IO, Ada.Long_Float_Text_IO, System.Machine_Code;
-use Ada.Directories, Ada.Text_IO, Ada.Long_Float_Text_IO, System.Machine_Code;
+with Ada.Directories, Ada.Long_Float_Text_IO, Ada.Text_IO, System.Machine_Code;
+use Ada.Directories, Ada.Long_Float_Text_IO, Ada.Text_IO, System.Machine_Code;
 procedure Main is
    type timespec                    is record
       tv_sec   : Long_Long_Integer;
       tv_nsec  : Integer;
    end record;
-   start, finish                    : timespec;
+   time                             : timespec;
    frequency, counter               : aliased Long_Long_Integer;
    type Long_Long_Integer_Pointer   is access all Long_Long_Integer;
    elapsedTime                      : Long_Float;
@@ -39,7 +39,7 @@ procedure Main is
 begin
    if          not (QueryPerformanceFrequency(frequency'Access) and QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
    end         if;
-   start       := (tv_sec  => counter / frequency, tv_nsec => Integer((counter mod frequency) * 1000000000 / frequency));
+   time        := (tv_sec  => counter / frequency, tv_nsec => Integer((counter mod frequency) * 1000000000 / frequency));
    loop
       st       := rdtscpf;
       et       := rdtscpf - st;
@@ -49,8 +49,7 @@ begin
    end         loop;
    if          not (QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
    end         if;
-   finish      := (tv_sec  => counter / frequency, tv_nsec => Integer((counter mod frequency) * 1000000000 / frequency));
-   elapsedTime := Long_Float(finish.tv_sec - start.tv_sec) + Long_Float(finish.tv_nsec - start.tv_nsec) / 1000000000.0;
+   elapsedTime := Long_Float((counter / frequency) - time.tv_sec) + Long_Float(Integer((counter mod frequency) * 1000000000 / frequency) - time.tv_nsec) / 1000000000.0;
    Size        := Ada.Directories.Size("main.exe");
    Put_Line("Total Cycles " & Cycles'Image);
    Put("Time taken: " & Unsigned_Long_Long_Integer(Unsigned_Long_Long_Integer(elapsedTime) / 3600)'Image & " hours " & Unsigned_Long_Long_Integer(Unsigned_Long_Long_Integer(elapsedTime) mod 3600 / 60)'Image & " minutes ");
