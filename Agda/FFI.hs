@@ -1,5 +1,5 @@
 module FFI where
-import Foreign(Ptr)
+import Foreign(Ptr, Int64)
 import Data.Word(Word64)
 import Foreign.Marshal.Alloc(alloca)
 import Foreign.Storable(peek)
@@ -7,8 +7,8 @@ import Text.Printf(printf)
 import Data.Text(pack, Text, unpack)
 import System.Directory(getFileSize)
 import System.IO.Error(catchIOError)
-foreign import ccall unsafe "QueryPerformanceFrequency" _QueryPerformanceFrequency :: Ptr Word64 -> IO Bool
-foreign import ccall unsafe "QueryPerformanceCounter" _QueryPerformanceCounter :: Ptr Word64 -> IO Bool
+foreign import ccall unsafe "QueryPerformanceFrequency" _QueryPerformanceFrequency :: Ptr Int64 -> IO Bool
+foreign import ccall unsafe "QueryPerformanceCounter" _QueryPerformanceCounter :: Ptr Int64 -> IO Bool
 foreign import ccall unsafe "ExitProcess" _ExitProcess :: Word -> IO()
 foreign import ccall unsafe "rdtscpf" _rdtscpf :: IO Word64
 formatFloat6                :: Double -> Text
