@@ -41,11 +41,11 @@ begin
    end         if;
    start       := (tv_sec  => counter / frequency, tv_nsec => Integer((counter mod frequency) * 1000000000 / frequency));
    loop
-      exit     when i = 100000;
       st       := rdtscpf;
       et       := rdtscpf - st;
       Cycles   := Cycles + et;
       i        := i + 1;
+      exit     when i = 100000;
    end         loop;
    if          not (QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
    end         if;
