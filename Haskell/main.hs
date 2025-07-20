@@ -28,9 +28,9 @@ mB              = 1024 * 1024
 gB              :: Double
 gB              = 1024 * 1024 * 1024
 main            :: IO ()
-main    = alloca $ \lpPerformanceCount -> do
-    _QueryPerformanceFrequency  lpPerformanceCount
-    frequency                   <- peek lpPerformanceCount
+main    = alloca $ \lpFrequency -> do
+    _QueryPerformanceFrequency  lpFrequency
+    frequency                   <- peek lpFrequency
     alloca                      $ \lpPerformanceCount -> do
         _QueryPerformanceCounter    lpPerformanceCount
         counter                     <- peek lpPerformanceCount
