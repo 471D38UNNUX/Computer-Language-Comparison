@@ -37,23 +37,21 @@ procedure Main is
       return   output;
    end rdtscpf;
 begin
-   if             not (QueryPerformanceFrequency(frequency'Access) and QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
-   end            if;
-   start.tv_sec   := counter / frequency;
-   start.tv_nsec  := Integer((counter mod frequency) * 1000000000 / frequency);
+   if          not (QueryPerformanceFrequency(frequency'Access) and QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
+   end         if;
+   start       := (tv_sec  => counter / frequency, tv_nsec => Integer((counter mod frequency) * 1000000000 / frequency));
    loop
       exit     when i = 100000;
       st       := rdtscpf;
       et       := rdtscpf - st;
       Cycles   := Cycles + et;
       i        := i + 1;
-   end            loop;
-   if             not (QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
-   end            if;
-   finish.tv_sec  := counter / frequency;
-   finish.tv_nsec := Integer((counter mod frequency) * 1000000000 / frequency);
-   elapsedTime    := Long_Float(finish.tv_sec - start.tv_sec) + Long_Float(finish.tv_nsec - start.tv_nsec) / 1000000000.0;
-   Size           := Ada.Directories.Size("main.exe");
+   end         loop;
+   if          not (QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
+   end         if;
+   finish      := (tv_sec  => counter / frequency, tv_nsec => Integer((counter mod frequency) * 1000000000 / frequency));
+   elapsedTime := Long_Float(finish.tv_sec - start.tv_sec) + Long_Float(finish.tv_nsec - start.tv_nsec) / 1000000000.0;
+   Size        := Ada.Directories.Size("main.exe");
    Put_Line("Total Cycles " & Cycles'Image);
    Put("Time taken: " & Unsigned_Long_Long_Integer(Unsigned_Long_Long_Integer(elapsedTime) / 3600)'Image & " hours " & Unsigned_Long_Long_Integer(Unsigned_Long_Long_Integer(elapsedTime) mod 3600 / 60)'Image & " minutes ");
    Put(Long_Float(Unsigned_Long_Long_Integer(elapsedTime) mod 60) + elapsedTime - Long_Float(Unsigned_Long_Long_Integer(elapsedTime)), 1, 6, 0);
@@ -61,20 +59,20 @@ begin
    Put("Approx CPU frequency: ");
    Put(Long_Float(Cycles) / elapsedTime / 1.0e9, 1, 6, 0);
    Put_Line(" GHz");
-   if             Long_Float(Size) >= GB then
+   if          Long_Float(Size) >= GB then
       Put("File size: ");
       Put(Long_Float(Size) / GB, 1, 3, 0);
       Put_Line(" GB");
-   elsif          Long_Float(Size) >= MB then
+   elsif       Long_Float(Size) >= MB then
       Put("File size: ");
       Put(Long_Float(Size) / MB, 1, 3, 0);
       Put_Line(" MB");
-   elsif          Long_Float(Size) >= KB then
+   elsif       Long_Float(Size) >= KB then
       Put("File size: ");
       Put(Long_Float(Size) / KB, 1, 3, 0); 
       Put_Line(" KB");
-   else           Put_Line("File size: " & Size'Image & " bytes");
-   end if;
+   else        Put_Line("File size: " & Size'Image & " bytes");
+   end         if;
    ExitProcess(0);
    exception      when Ada.Directories.Name_Error => ExitProcess(1);
 end Main;
