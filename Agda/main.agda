@@ -82,17 +82,16 @@ main            =
   bind  QueryPerformanceCounter λ lpPerformanceCount → result lpFrequency lpPerformanceCount where
     result  : Maybe Nat → Maybe Nat → IO ⊤
     result  (just frequency) (just counter) =
-      let start = record {tv_sec  = primNatToInt(counter div frequency); tv_nsec = primNatToInt((counter mod frequency * 1000000000) div frequency)} in
-      bind (forlr 0 100000 0 (λ a total →
+      let time  = record {tv_sec  = primNatToInt(counter div frequency); tv_nsec = primNatToInt((counter mod frequency * 1000000000) div frequency)} in
+      bind(forlr 0 100000 0 (λ a total →
         bind rdtscpf λ st →
         bind rdtscpf λ et →
         return(((total + et) - st)))) λ Cycles →
-      bind  QueryPerformanceCounter λ lpPerformanceCount → success frequency start Cycles lpPerformanceCount where
+      bind  QueryPerformanceCounter λ lpPerformanceCount → success frequency time Cycles lpPerformanceCount where
       success  : Nat → timespec → Nat → Maybe Nat → IO ⊤
       success  _ _ _ nothing = ExitProcess 1
-      success  frequency start Cycles (just counter) =
-        let end         = record {tv_sec  = primNatToInt(counter div frequency); tv_nsec = primNatToInt((counter mod frequency * 1000000000) div frequency)} in
-        let elapsedTime = primFloatPlus(primIntToFloat(timespec.tv_sec end -i timespec.tv_sec start)) (primFloatDiv(primIntToFloat(timespec.tv_nsec end -i timespec.tv_nsec start)) 1000000000.0) in
+      success  frequency time Cycles (just counter) =
+        let elapsedTime = primFloatPlus(primIntToFloat(primNatToInt(counter div frequency) -i timespec.tv_sec time)) (primFloatDiv(primIntToFloat(primNatToInt((counter mod frequency * 1000000000) div frequency) -i timespec.tv_nsec time)) 1000000000.0) in
         bind(getFileSize "main.exe") λ result → resultWith frequency Cycles elapsedTime result where
           resultWith  : Nat → Nat → Float → Maybe Nat → IO ⊤
           resultWith  _ _ _ nothing = ExitProcess 1
