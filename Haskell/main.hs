@@ -6,8 +6,8 @@ import System.Directory(getFileSize)
 import System.IO.Error(catchIOError)
 import Text.Printf(printf)
 import Data.Text(Text, pack)
-foreign import ccall unsafe "QueryPerformanceFrequency" _QueryPerformanceFrequency :: Ptr Word64 -> IO Bool
-foreign import ccall unsafe "QueryPerformanceCounter" _QueryPerformanceCounter :: Ptr Word64 -> IO Bool
+foreign import ccall unsafe "QueryPerformanceFrequency" _QueryPerformanceFrequency :: Ptr Int64 -> IO Bool
+foreign import ccall unsafe "QueryPerformanceCounter" _QueryPerformanceCounter :: Ptr Int64 -> IO Bool
 foreign import ccall unsafe "ExitProcess"  _ExitProcess :: Word -> IO ()
 foreign import ccall unsafe "rdtscpf" _rdtscpf :: IO Int64
 forlr           :: Int64 -> Int64 -> Int64 -> (Int64 -> Int64 -> IO Int64) -> IO Int64
