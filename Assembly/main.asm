@@ -52,9 +52,9 @@ l0:
     sub         48(%rsp), %rax
     cvtsi2sd    %rax, %xmm6
     mov         $1000000000, %eax
-    imul        %edx
+    imul        %rdx
     xor         %edx, %edx
-    idivl       32(%rsp)
+    idivq       32(%rsp)
     sub         56(%rsp), %eax
     cvtsi2sd    %eax, %xmm1
     mov         $0x41cdcd6500000000, %rax
@@ -90,18 +90,19 @@ c1:
     mov         $3600, %ecx
     div         %rcx
     mov         %rax, %rbp
-    mov         %rdx, %rsi
     mov         $60, %ecx
     mov         %rdx, %rax
     xor         %edx, %edx
     div         %rcx
-    mov         %rax, %r12
+    mov         %rax, %rsi
+    cvtsi2sd    %rdx, %xmm0
     cvtsi2sd    %rbx, %xmm1
     subsd       %xmm1, %xmm6
+    addsd       %xmm6, %xmm0
     lea         Timef(%rip), %rcx
     mov         %rbp, %rdx
     mov         %rsi, %r8
-    movq        %xmm6, %r9
+    movq        %xmm0, %r9
     call        printf_s
     cvtsi2sd    %rdi, %xmm0
     divsd       %xmm8, %xmm0
