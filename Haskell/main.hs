@@ -8,7 +8,7 @@ import Text.Printf(printf)
 import Data.Text(Text, pack)
 foreign import ccall unsafe "QueryPerformanceFrequency" _QueryPerformanceFrequency :: Ptr Int64 -> IO Bool
 foreign import ccall unsafe "QueryPerformanceCounter" _QueryPerformanceCounter :: Ptr Int64 -> IO Bool
-foreign import ccall unsafe "ExitProcess"  _ExitProcess :: Word -> IO ()
+foreign import ccall unsafe "ExitProcess"  _ExitProcess :: Word -> IO()
 foreign import ccall unsafe "rdtscpf" _rdtscpf :: IO Int64
 forlr           :: Int64 -> Int64 -> Int64 -> (Int64 -> Int64 -> IO Int64) -> IO Int64
 forlr           start end acc f
@@ -17,9 +17,9 @@ forlr           start end acc f
         acc <- f start acc
         forlr(start + 1) end acc f
 formatFloat6    :: Double -> Text
-formatFloat6 f  = pack (printf "%.6f" f)
+formatFloat6 f  = pack(printf "%.6f" f)
 formatFloat3    :: Double -> Text
-formatFloat3 f  = pack (printf "%.3f" f)
+formatFloat3 f  = pack(printf "%.3f" f)
 data TimeSpec   = TimeSpec {tv_sec :: Int64, tv_nsec :: Int} deriving Show
 kB              :: Double
 kB              = 1024
@@ -32,7 +32,7 @@ main    = alloca $ \lpFrequency -> do
     result  <- _QueryPerformanceFrequency  lpFrequency
     alloca                      $ \lpPerformanceCount -> do
         success <- _QueryPerformanceCounter lpPerformanceCount
-        if      not (result || success) then _ExitProcess 1
+        if      not(result || success) then _ExitProcess 1
         else    do
             frequency                   <- peek lpFrequency
             counter                     <- peek lpPerformanceCount
@@ -45,16 +45,16 @@ main    = alloca $ \lpFrequency -> do
             if          not result then _ExitProcess 1
             else    do
                 counter         <- peek lpPerformanceCount
-                let elapsedTime = (fromIntegral(div (fromIntegral counter) (fromIntegral frequency) - tv_sec time) :: Double) + fromIntegral((fromIntegral(div (mod counter frequency * 1000000000) frequency) :: Int) - tv_nsec time) / 1000000000.0 :: Double
-                result          <- catchIOError(Just <$> getFileSize "main.exe") (\_ -> return Nothing)
+                let elapsedTime = (fromIntegral(div counter frequency - tv_sec time) :: Double) + fromIntegral((fromIntegral(div (mod counter frequency * 1000000000) frequency) :: Int) - tv_nsec time) / 1000000000.0 :: Double
+                result          <- catchIOError (Just <$> getFileSize "main.exe") (\_ -> return Nothing)
                 case            result of
                     Nothing     -> _ExitProcess 1
                     Just size   -> do
                         putStrLn("Total Cycles " ++ show cycles)
-                        putStrLn("Time taken: " ++ show(div (fromIntegral(truncate elapsedTime :: Word64)) 3600) ++ " hours " ++ show(formatFloat6((fromIntegral(mod (fromIntegral(truncate elapsedTime :: Word64)) 60) :: Double) + elapsedTime - fromIntegral(fromIntegral(truncate elapsedTime :: Word64)) :: Double)) ++ " seconds")
+                        putStrLn("Time taken: " ++ show (div (fromIntegral(truncate elapsedTime :: Word64)) 3600) ++ " hours " ++ show(formatFloat6((fromIntegral(mod (fromIntegral(truncate elapsedTime :: Word64)) 60) :: Double) + elapsedTime - fromIntegral(fromIntegral(truncate elapsedTime :: Word64)) :: Double)) ++ " seconds")
                         putStrLn("Approx CPU frequency: " ++ show (formatFloat6 (fromIntegral cycles / elapsedTime / 1.0e9)) ++ " GHz")
-                        if              fromIntegral size >= gB then putStrLn("File size: " ++ show (formatFloat3(fromIntegral size / gB)) ++ " GB")
-                        else if         fromIntegral size >= mB then putStrLn("File size: " ++ show (formatFloat3(fromIntegral size / mB)) ++ " MB")
-                        else if         fromIntegral size >= kB then putStrLn("File size: " ++ show (formatFloat3(fromIntegral size / kB)) ++ " KB")
+                        if              (fromIntegral size :: Double) >= gB then putStrLn("File size: " ++ show(formatFloat3((fromIntegral size :: Double) / gB)) ++ " GB")
+                        else if         (fromIntegral size :: Double) >= mB then putStrLn("File size: " ++ show(formatFloat3((fromIntegral size :: Double) / mB)) ++ " MB")
+                        else if         (fromIntegral size :: Double) >= kB then putStrLn("File size: " ++ show(formatFloat3((fromIntegral size :: Double) / kB)) ++ " KB")
                         else            putStrLn("File size: " ++ show size ++ " bytes")
                         _ExitProcess    0
