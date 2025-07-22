@@ -51,7 +51,7 @@ main    = alloca $ \lpFrequency -> do
                     Nothing     -> _ExitProcess 1
                     Just size   -> do
                         putStrLn("Total Cycles " ++ show cycles)
-                        putStrLn("Time taken: " ++ show (div (fromIntegral(truncate elapsedTime :: Word64)) 3600) ++ " hours " ++ show(formatFloat6((fromIntegral(mod (fromIntegral(truncate elapsedTime :: Word64)) 60) :: Double) + elapsedTime - fromIntegral(fromIntegral(truncate elapsedTime :: Word64)) :: Double)) ++ " seconds")
+                        putStrLn("Time taken: " ++ show(div (fromIntegral(truncate elapsedTime :: Word64)) 3600) ++ " hours " ++ show(div (mod (fromIntegral(truncate elapsedTime :: Word64)) 3600) 60) ++ " minutes " ++ show(formatFloat6((fromIntegral(mod (fromIntegral(truncate elapsedTime :: Word64)) 60) :: Double) + elapsedTime - fromIntegral(fromIntegral(truncate elapsedTime :: Word64)) :: Double)) ++ " seconds")
                         putStrLn("Approx CPU frequency: " ++ show (formatFloat6 (fromIntegral cycles / elapsedTime / 1.0e9)) ++ " GHz")
                         if              (fromIntegral size :: Double) >= gB then putStrLn("File size: " ++ show(formatFloat3((fromIntegral size :: Double) / gB)) ++ " GB")
                         else if         (fromIntegral size :: Double) >= mB then putStrLn("File size: " ++ show(formatFloat3((fromIntegral size :: Double) / mB)) ++ " MB")
