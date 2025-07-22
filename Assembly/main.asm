@@ -29,9 +29,9 @@ _start:
     idivq       32(%rsp)
     mov         %rax, 48(%rsp)
     mov         $1000000000, %eax
-    imul        %edx
+    imul        %rdx
     xor         %edx, %edx
-    idivl       32(%rsp)
+    idivq       32(%rsp)
     mov         %eax, 56(%rsp)
 l0:
     call        rdtscpf
