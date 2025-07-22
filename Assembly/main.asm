@@ -1,3 +1,4 @@
+#   as main.asm -o main.obj
 #   ld -s --disable-dynamicbase --file-alignment=1 --section-alignment=1 --disable-reloc-section main.obj -Tlink.ld -L"Path\lib" -lkernel32 -lmsvcr120 -o main.exe
 .global _start
 .section .data
@@ -9,37 +10,29 @@
     MBf:        .asciz "File size: %.3f MB\n"
     KBf:        .asciz "File size: %.3f KB\n"
     bytef:      .asciz "File size: %u bytes\n"
-    Size:       .quad 0
-    frequency:  .quad 0
-    counter:    .quad 0
-    .align      16
-    buf:        .space 256
-    fileinfo:   .space 36
-    time:       .space 12
     .equ        kB, 1024
     .equ        mB, 1024 * 1024
     .equ        gB, 1024 * 1024 * 1024
 .section .text
 _start:
-    sub         $40, %rsp
-    lea         frequency(%rip), %rcx
+    sub         $360, %rsp
+    lea         32(%rsp), %rcx
     call        QueryPerformanceFrequency
     test        %al, %al
     jz          Error
-    lea         counter(%rip), %rcx
+    lea         40(%rsp), %rcx
     call        QueryPerformanceCounter
     test        %al, %al
     jz          Error
-    lea         time(%rip), %r8
     xor         %edx, %edx
-    mov         counter(%rip), %rax
-    idivq       frequency(%rip)
-    mov         %rax, (%r8)
+    mov         40(%rsp), %rax
+    idivq       32(%rsp)
+    mov         %rax, 48(%rsp)
     mov         $1000000000, %eax
     imul        %edx
     xor         %edx, %edx
-    idivl       frequency(%rip)
-    mov         %eax, 8(%r8)
+    idivl       32(%rsp)
+    mov         %eax, 56(%rsp)
 l0:
     call        rdtscpf
     mov         %rax, %rbp
@@ -49,46 +42,45 @@ l0:
     incl        %ebx
     cmp         $100000, %ebx
     jb          l0
-    lea         counter(%rip), %rcx
+    lea         40(%rsp), %rcx
     call        QueryPerformanceCounter
     test        %al, %al
     jz          Error
-    lea         time(%rip), %r8
     xor         %edx, %edx
-    mov         counter(%rip), %rax
-    idivq       frequency(%rip)
-    sub         (%r8), %rax
+    mov         40(%rsp), %rax
+    idivq       32(%rsp)
+    sub         48(%rsp), %rax
     cvtsi2sd    %rax, %xmm6
     mov         $1000000000, %eax
     imul        %edx
     xor         %edx, %edx
-    idivl       frequency(%rip)
-    sub         8(%r8), %eax
+    idivl       32(%rsp)
+    sub         56(%rsp), %eax
     cvtsi2sd    %eax, %xmm1
     mov         $0x41cdcd6500000000, %rax
     movq        %rax, %xmm7
     divsd       %xmm7, %xmm1
     addsd       %xmm1, %xmm6
     movdqa      %xmm6, %xmm8
-    lea         buf(%rip), %rcx
+    lea         96(%rsp), %rcx
     xor         %edx, %edx
     call        setjmp
     test        %al, %al
     jnz         Error
     lea         file(%rip), %rcx
     xor         %edx, %edx
-    lea         fileinfo(%rip), %r8
+    lea         60(%rsp), %r8
     call        GetFileAttributesExA
     test        %al, %al
     jnz         c1
-    lea         buf(%rip), %rcx
+    lea         96(%rsp), %rcx
     mov         $1, %edx
     call        longjmp
 c1:
-    mov         fileinfo + 28(%rip), %eax
-    mov         fileinfo + 32(%rip), %ecx
-    mov         %eax, Size + 4(%rip)
-    mov         %ecx, Size(%rip)
+    mov         88(%rsp), %eax
+    mov         92(%rsp), %ecx
+    mov         %eax, 356(%rsp)
+    mov         %ecx, 352(%rsp)
     lea         Cycles(%rip), %rcx
     mov         %rdi, %rdx
     call        printf_s
@@ -117,7 +109,7 @@ c1:
     lea         CPU(%rip), %rcx
     movq        %xmm0, %rdx
     call        printf_s
-    mov         Size(%rip), %rax
+    mov         352(%rsp), %rax
     cvtsi2sd    %rax, %xmm0
     cmp         $gB, %rax
     jb          c2
