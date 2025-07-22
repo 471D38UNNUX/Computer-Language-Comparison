@@ -45,7 +45,7 @@ main    = alloca $ \lpFrequency -> do
             if          not result then _ExitProcess 1
             else    do
                 counter         <- peek lpPerformanceCount
-                let elapsedTime = (fromIntegral(div (fromIntegral counter) (fromIntegral frequency) - tv_sec time) :: Double) + fromIntegral(fromIntegral(div (mod counter frequency * 1000000000) frequency) - tv_nsec time) / 1000000000.0 :: Double
+                let elapsedTime = (fromIntegral(div (fromIntegral counter) (fromIntegral frequency) - tv_sec time) :: Double) + fromIntegral((fromIntegral(div (mod counter frequency * 1000000000) frequency) :: Int) - tv_nsec time) / 1000000000.0 :: Double
                 result          <- catchIOError(Just <$> getFileSize "main.exe") (\_ -> return Nothing)
                 case            result of
                     Nothing     -> _ExitProcess 1
