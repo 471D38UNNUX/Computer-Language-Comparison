@@ -11,7 +11,7 @@ procedure Main is
    elapsedTime                      : Long_Float;
    type Unsigned_Long_Long_Integer  is mod 2 ** 64;
    type Unsigned_Integer            is mod 2 ** 32;
-   st, et, Cycles, i                : Unsigned_Long_Long_Integer := 0;
+   st, et, Cycles                   : Unsigned_Long_Long_Integer := 0;
    Size                             : File_Size;
    KB                               : constant Long_Float := 1024.0;
    MB                               : constant Long_Float := KB * 1024.0;
@@ -40,12 +40,10 @@ begin
    if          not (QueryPerformanceFrequency(frequency'Access) and QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
    end         if;
    time        := (tv_sec  => counter / frequency, tv_nsec => Integer((counter mod frequency) * 1000000000 / frequency));
-   loop
+   for         i in 0 .. 100000 loop
       st       := rdtscpf;
       et       := rdtscpf - st;
       Cycles   := Cycles + et;
-      i        := i + 1;
-      exit     when i = 100000;
    end         loop;
    if          not (QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
    end         if;
