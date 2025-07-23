@@ -1,5 +1,5 @@
 #   as main.asm -o main.obj
-#   ld -s --disable-dynamicbase --file-alignment=1 --section-alignment=1 --disable-reloc-section main.obj -Tlink.ld -L"Path\lib" -lkernel32 -lmsvcr120 -o main.exe
+#   ld -s --file-alignment=1 --section-alignment=1 --disable-reloc-section main.obj -Tlink.ld -L"Path\lib" -lkernel32 -lmsvcr120 -o main.exe
 .global _start
 .section .data
     file:       .asciz "main.exe"
