@@ -37,7 +37,7 @@ procedure Main is
       return   output;
    end rdtscpf;
 begin
-   if          not (QueryPerformanceFrequency(frequency'Access) and QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
+   if          not(QueryPerformanceFrequency(frequency'Access) and QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
    end         if;
    time        := (tv_sec  => counter / frequency, tv_nsec => Integer((counter mod frequency) * 1000000000 / frequency));
    for         i in 0 .. 100000 loop
@@ -45,7 +45,7 @@ begin
       et       := rdtscpf - st;
       Cycles   := Cycles + et;
    end         loop;
-   if          not (QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
+   if          not(QueryPerformanceCounter(counter'Access)) then ExitProcess(1);
    end         if;
    elapsedTime := Long_Float((counter / frequency) - time.tv_sec) + Long_Float(Integer((counter mod frequency) * 1000000000 / frequency) - time.tv_nsec) / 1000000000.0;
    Size        := Ada.Directories.Size("main.exe");
@@ -71,5 +71,5 @@ begin
    else        Put_Line("File size: " & Size'Image & " bytes");
    end         if;
    ExitProcess(0);
-   exception      when Ada.Directories.Name_Error => ExitProcess(1);
+   exception   when Ada.Directories.Name_Error => ExitProcess(1);
 end Main;
