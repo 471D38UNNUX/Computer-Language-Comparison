@@ -1,21 +1,22 @@
-//  gcc main.c -O3 -s -Wl,--file-alignment=1 -Wl,--section-alignment=1 -nostdlib -Tlink.ld -L"Path\lib" -lkernel32 -lucrt -e __main -o main.exe
+//  cl /Ox main.c /link /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /fixed /align:16 /filealign:16 /subsystem:console kernel32.lib ucrt.lib vcruntime.lib
+#define _AMD64_
 #include <profileapi.h>
 #include <processthreadsapi.h>
-#include <sys/types.h>
+#include <time.h>
 #include <intrin.h>
+#include <emmintrin.h>
 #include <setjmp.h>
-#include <sec_api/stdio_s.h>
-#include <math.h>
+#include <stdio.h>
 const   double      kB = 1024.0, mB = 1024.0 * 1024.0, gB = 1024.0 * 1024.0 * 1024.0;
 unsigned long long  rdtscpf()
 {
     unsigned int        input;
-    __builtin_ia32_lfence();
-    unsigned long long  output = __builtin_ia32_rdtscp(&input);
-    __builtin_ia32_lfence();
+    _mm_lfence();
+    unsigned long long  output = __rdtscp(&input);
+    _mm_lfence();
     return              output;
 }
-int                 __main()
+int                 mainCRTStartup()
 {
     LARGE_INTEGER       frequency, counter;
     if                  (!(QueryPerformanceFrequency(&frequency) && QueryPerformanceCounter(&counter))) ExitProcess(1);
