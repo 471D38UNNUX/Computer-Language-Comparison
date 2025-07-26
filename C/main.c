@@ -1,4 +1,14 @@
-//  cl /Ox main.c /link /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /fixed /align:16 /filealign:16 /subsystem:console kernel32.lib ucrt.lib vcruntime.lib
+//  cl /Ox main.c /link /fixed /filealign:16 /align:16
+#pragma comment(linker, "/merge:.rdata=.")
+#pragma comment(linker, "/merge:.pdata=.")
+#pragma comment(linker, "/merge:.text=.")
+#pragma comment(linker, "/merge:.data=.")
+#pragma comment(linker, "/section:.,erw")
+#pragma comment(linker, "/align:16")
+#pragma comment(linker, "/subsystem:console")
+#pragma comment(lib, "kernel32.lib")
+#pragma comment(lib, "ucrt.lib")
+#pragma comment(lib, "vcruntime.lib")
 #define _AMD64_
 #include <profileapi.h>
 #include <processthreadsapi.h>
@@ -22,12 +32,13 @@ int                 mainCRTStartup()
     if                  (!(QueryPerformanceFrequency(&frequency) && QueryPerformanceCounter(&counter))) ExitProcess(1);
     struct              timespec time = {.tv_sec = (counter.QuadPart / frequency.QuadPart), .tv_nsec = (int)((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart)};
     unsigned long long  st, et, Size, Cycles = 0;
-    for                 (unsigned int i = 0; i < 100000; i++)
+    unsigned int        i = 100000;
+    do
     {
         st      = rdtscpf();
         et      = rdtscpf() - st;
-        Cycles  += et;
-    };
+        Cycles  += et, i--;
+    }                   while (i > 0);
     if                  (!QueryPerformanceCounter(&counter)) ExitProcess(1);
     double              elapsedTime = (double)((counter.QuadPart / frequency.QuadPart) - time.tv_sec) + (double)((int)((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart) - time.tv_nsec) / 1000000000.0;
     jmp_buf             buf;
