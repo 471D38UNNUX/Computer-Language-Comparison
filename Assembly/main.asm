@@ -33,15 +33,15 @@ _start:
     xor         %edx, %edx
     idivq       32(%rsp)
     mov         %eax, 56(%rsp)
+    mov         $100000, %ebx
 l0:
     call        rdtscpf
     mov         %rax, %rbp
     call        rdtscpf
     sub         %rbp, %rax
     add         %rax, %rdi
-    incl        %ebx
-    cmp         $100000, %ebx
-    jb          l0
+    decl        %ebx
+    jnz         l0
     lea         40(%rsp), %rcx
     call        QueryPerformanceCounter
     test        %al, %al
