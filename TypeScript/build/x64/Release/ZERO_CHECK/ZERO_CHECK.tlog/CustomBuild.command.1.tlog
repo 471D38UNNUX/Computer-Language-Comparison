@@ -1,0 +1,10 @@
+^D:\ASSEMBLY PROJECT\PROGRAMMING LANGUAGE\TYPESCRIPT\BUILD\CMAKEFILES\EC4E3C47B56EC49F6368418734665E9D\GENERATE.STAMP.RULE
+setlocal
+D:\CMake\bin\cmake.exe "-SD:/Assembly Project/Programming Language/TypeScript" "-BD:/Assembly Project/Programming Language/TypeScript/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Assembly Project/Programming Language/TypeScript/build/main.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
