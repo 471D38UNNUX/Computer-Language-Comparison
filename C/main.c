@@ -1,4 +1,4 @@
-//  cl /Ox main.c /link /fixed /filealign:16 /align:16
+//  cl /Ox main.c /link /fixed /filealign:16
 #pragma comment(linker, "/merge:.rdata=.")
 #pragma comment(linker, "/merge:.pdata=.")
 #pragma comment(linker, "/merge:.text=.")
