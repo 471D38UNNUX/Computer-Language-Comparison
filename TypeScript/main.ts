@@ -1,9 +1,9 @@
 //  deno compile -o main.exe --allow-ffi="./build/Release/main.node" --allow-read="./main.exe" main.ts
-import process from "node:process"
+import {dlopen} from "node:process"
 import {Buffer} from "node:buffer"
 import {statSync} from "node:fs"
 const module              = {exports: {}}
-process.dlopen(module, "./build/Release/main.node", 0)
+dlopen(module, "./build/Release/main.node", 0)
 const FFI                 = module.exports as
 {
   QueryPerformanceFrequency(lpFrequency: Buffer): boolean

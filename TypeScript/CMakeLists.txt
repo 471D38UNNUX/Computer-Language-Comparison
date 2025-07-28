@@ -18,7 +18,8 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
                 /section:.,erw \
                 /align:128 \
                 /fixed \
-                /filealign:128")
+                /filealign:128 \
+                /noentry")
 target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB})
 
 # Define NAPI_VERSION
