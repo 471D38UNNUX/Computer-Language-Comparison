@@ -1,0 +1,10 @@
+^D:\ASSEMBLY PROJECT\PROGRAMMING LANGUAGE\JAVASCRIPT\CMAKELISTS.TXT
+setlocal
+D:\CMake\bin\cmake.exe "-SD:/Assembly Project/Programming Language/JavaScript" "-BD:/Assembly Project/Programming Language/JavaScript/build" --check-stamp-file "D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

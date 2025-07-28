@@ -1,0 +1,10 @@
+^D:\ASSEMBLY PROJECT\PROGRAMMING LANGUAGE\JAVASCRIPT\BUILD\CMAKEFILES\D0FA2FC9F443BE0B2D51DD7F154FDD38\GENERATE.STAMP.RULE
+setlocal
+D:\CMake\bin\cmake.exe "-SD:/Assembly Project/Programming Language/JavaScript" "-BD:/Assembly Project/Programming Language/JavaScript/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Assembly Project/Programming Language/JavaScript/build/main.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
