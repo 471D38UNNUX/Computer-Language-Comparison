@@ -1,5 +1,4 @@
 //  deno compile -o main.exe --allow-ffi="./build/Release/main.node" --allow-read="./main.exe" main.js
-import process from "node:process"
 import {statSync} from "node:fs"
 const module                = {exports: {}}
 process.dlopen(module, "./build/Release/main.node", 0)
