@@ -20,10 +20,6 @@ ExitProcess                 proto
     esize                       db "Must be at least 8 bytes", 0
     eint                        db "Invalid argument: expected an integer", 0
 .code
-_DllMainCRTStartup                  proc
-	mov	eax, 1
-	ret
-_DllMainCRTStartup                  endp
 node_api_module_get_api_version_v1  proc
     mov eax, 8
     ret

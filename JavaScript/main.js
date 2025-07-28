@@ -1,7 +1,8 @@
 //  deno compile -o main.exe --allow-ffi="./build/Release/main.node" --allow-read="./main.exe" main.js
+import module from "node:module"
+import {dlopen} from "node:process"
 import {statSync} from "node:fs"
-const module                = {exports: {}}
-process.dlopen(module, "./build/Release/main.node", 0)
+dlopen(module, "./build/Release/main.node", 0)
 const FFI                   = module.exports
 const kB                    = 1024.0, mB = 1024.0 * 1024.0, gB = 1024.0 * 1024.0 * 1024.0
 let lpFrequency             = Buffer.alloc(8)

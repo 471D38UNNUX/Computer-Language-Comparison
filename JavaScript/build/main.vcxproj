@@ -131,7 +131,7 @@
     <Link>
       <AdditionalDependencies>C:\Users\user\.cmake-js\node-x64\v24.4.1\win-x64\node.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /export:node_api_module_get_api_version_v1 /export:napi_register_module_v1 /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /align:128 /fixed /filealign:128</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /export:node_api_module_get_api_version_v1 /export:napi_register_module_v1 /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /align:128 /fixed /filealign:128 /noentry</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <DelayLoadDLLs>NODE.EXE</DelayLoadDLLs>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -189,7 +189,7 @@
     <Link>
       <AdditionalDependencies>C:\Users\user\.cmake-js\node-x64\v24.4.1\win-x64\node.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /export:node_api_module_get_api_version_v1 /export:napi_register_module_v1 /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /align:128 /fixed /filealign:128</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /export:node_api_module_get_api_version_v1 /export:napi_register_module_v1 /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /align:128 /fixed /filealign:128 /noentry</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <DelayLoadDLLs>NODE.EXE</DelayLoadDLLs>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -247,7 +247,7 @@
     <Link>
       <AdditionalDependencies>C:\Users\user\.cmake-js\node-x64\v24.4.1\win-x64\node.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /export:node_api_module_get_api_version_v1 /export:napi_register_module_v1 /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /align:128 /fixed /filealign:128</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /export:node_api_module_get_api_version_v1 /export:napi_register_module_v1 /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /align:128 /fixed /filealign:128 /noentry</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <DelayLoadDLLs>NODE.EXE</DelayLoadDLLs>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -304,7 +304,7 @@
     <Link>
       <AdditionalDependencies>C:\Users\user\.cmake-js\node-x64\v24.4.1\win-x64\node.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /export:node_api_module_get_api_version_v1 /export:napi_register_module_v1 /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /align:128 /fixed /filealign:128</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /export:node_api_module_get_api_version_v1 /export:napi_register_module_v1 /merge:.rdata=. /merge:.pdata=. /merge:.text=. /merge:.data=. /section:.,erw /align:128 /fixed /filealign:128 /noentry</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
       <DelayLoadDLLs>NODE.EXE</DelayLoadDLLs>
       <GenerateDebugInformation>true</GenerateDebugInformation>
