@@ -19,7 +19,7 @@ class                       Timespec
     }
 }
 let time                    = new Timespec(counter / frequency, (counter % frequency) * 1000000000n / frequency)
-let st, et, Size, Cycles    = 0n, i = 100000
+let st, et, Cycles          = 0n, i = 100000
 do
 {
     st      = FFI.rdtscpf()
