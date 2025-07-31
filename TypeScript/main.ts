@@ -23,7 +23,7 @@ interface                 Timespec
   tv_nsec: number
 }
 let time:                 Timespec = {tv_sec: counter / frequency, tv_nsec: Number((counter % frequency) * 1000000000n / frequency)}
-let st, et, Size, Cycles  = 0n, i = 100000
+let st, et, Cycles        = 0n, i = 100000
 do
 {
     st      = FFI.rdtscpf()
