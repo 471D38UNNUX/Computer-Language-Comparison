@@ -1,0 +1,40 @@
+#|
+    as RDTSCP.asm -o RDTSCP.obj
+    ld --shared -s --file-alignment=1 --section-alignment=1  rdtscp.obj -Tlink.ld -o rdtscp.dll
+    raco make main.rkt
+    raco exe main.rkt
+|#
+#lang racket/base
+(require ffi/unsafe ffi/unsafe/define)
+(define-ffi-definer kernel32(ffi-lib "kernel32.dll"))
+(define-ffi-definer rdtscp(ffi-lib "rdtscp.dll"))
+(kernel32       QueryPerformanceFrequency(_fun _pointer -> _bool))
+(kernel32       QueryPerformanceCounter(_fun _pointer -> _bool))
+(kernel32       ExitProcess(_fun _uint -> _void))
+(rdtscp         rdtscpf(_fun -> _uint64))
+(define-values (kB mB gB) (values 1024.0 (* 1024.0 1024.0) (* (* 1024.0 1024.0) 1024.0)))
+(define lpFrequency(cast(make-bytes 8 0) _bytes _pointer))
+(define lpPerformanceCount(cast(make-bytes 8 0) _bytes _pointer))
+(when(not(and (QueryPerformanceFrequency lpFrequency) (QueryPerformanceCounter lpPerformanceCount))) ExitProcess 1)
+(define frequency(ptr-ref lpFrequency _int64))
+(define counter(ptr-ref lpPerformanceCount _int64))
+(struct timespec(tv_sec tv_nsec) #:transparent)
+(define time(timespec (quotient counter frequency) (quotient (* (remainder counter frequency) 1000000000) frequency)))
+(define-values (st et Cycles) (values #f #f 0))
+(for([_(in-range 100000)])
+    (set! st (rdtscpf))
+    (set! et (- (rdtscpf) st))
+    (set! Cycles (+ Cycles et)))
+(when(not(QueryPerformanceCounter lpPerformanceCount)) ExitProcess 1)
+(set! counter(ptr-ref lpPerformanceCount _int64))
+(define elapsedTime(+ (- (quotient counter frequency) (timespec-tv_sec time)) (/ (- (quotient (* (remainder counter frequency) 1000000000) frequency) (timespec-tv_nsec time)) 1000000000.0)))
+(with-handlers ([exn:fail? (λ _ (ExitProcess 1))])
+(define Size(file-size "main.exe"))
+(displayln(string-append "Total Cycles " (number->string Cycles)))
+(displayln(string-append "Time taken: " (number->string(quotient (inexact->exact(truncate elapsedTime)) 3600)) " hours " (number->string(quotient (remainder (inexact->exact(truncate elapsedTime)) 3600) 60)) " minutes " (real->decimal-string(- (+ (remainder (inexact->exact(truncate elapsedTime)) 60) elapsedTime) (truncate elapsedTime)) 6) " seconds"))
+(displayln(string-append "Approx CPU frequency: " (real->decimal-string (/ (/ Cycles elapsedTime) 1.0e9) 6) " GHz"))
+(if (> Size gB) (displayln(string-append "File size: " (real->decimal-string(/ Size gB) 3) " GB"))
+    (if (> Size mB) (displayln(string-append "File size: " (real->decimal-string(/ Size mB) 3) " MB"))
+    (if (> Size kB) (displayln(string-append "File size: " (real->decimal-string(/ Size kB) 3) " KB"))
+    (displayln(string-append "File size: " (number->string Size) " bytes")))))
+(ExitProcess    0))
