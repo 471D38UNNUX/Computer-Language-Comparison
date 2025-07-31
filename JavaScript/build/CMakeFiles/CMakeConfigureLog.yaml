@@ -78,7 +78,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.14+a129329f1 for .NET Framework
-      Build started 28/07/2025 19.41.33.
+      Build started 31/07/2025 13.59.58.
       
       Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -107,7 +107,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.13
+      Time Elapsed 00:00:01.92
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -704,7 +704,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.14+a129329f1 for .NET Framework
-      Build started 28/07/2025 19.41.34.
+      Build started 31/07/2025 14.00.00.
       
       Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -733,7 +733,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.14
+      Time Elapsed 00:00:02.90
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -968,8 +968,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-2tqlb1"
-      binary: "D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-2tqlb1"
+      source: "D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-raw9sg"
+      binary: "D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-raw9sg"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od"
@@ -979,40 +979,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-2tqlb1'
+        Change Dir: 'D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-raw9sg'
         
-        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_96651.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f19ed.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.14+a129329f1 for .NET Framework
-        Build started 28/07/2025 19.41.36.
+        Build started 31/07/2025 14.00.04.
         
-        Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2tqlb1\\cmTC_96651.vcxproj" on node 1 (default targets).
+        Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-raw9sg\\cmTC_f19ed.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_96651.dir\\Debug\\".
+          Creating directory "cmTC_f19ed.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2tqlb1\\Debug\\".
-          Creating directory "cmTC_96651.dir\\Debug\\cmTC_96651.tlog\\".
+          Creating directory "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-raw9sg\\Debug\\".
+          Creating directory "cmTC_f19ed.dir\\Debug\\cmTC_f19ed.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_96651.dir\\Debug\\cmTC_96651.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_96651.dir\\Debug\\cmTC_96651.tlog\\unsuccessfulbuild".
+          Creating "cmTC_f19ed.dir\\Debug\\cmTC_f19ed.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_f19ed.dir\\Debug\\cmTC_f19ed.tlog\\unsuccessfulbuild".
         ClCompile:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_96651.dir\\Debug\\\\" /Fd"cmTC_96651.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_f19ed.dir\\Debug\\\\" /Fd"cmTC_f19ed.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35213 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_96651.dir\\Debug\\\\" /Fd"cmTC_96651.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_f19ed.dir\\Debug\\\\" /Fd"cmTC_f19ed.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2tqlb1\\Debug\\cmTC_96651.exe" /INCREMENTAL /ILK:"cmTC_96651.dir\\Debug\\cmTC_96651.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-2tqlb1/Debug/cmTC_96651.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-2tqlb1/Debug/cmTC_96651.lib" /MACHINE:X64 cmTC_96651.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_96651.vcxproj -> D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2tqlb1\\Debug\\cmTC_96651.exe
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-raw9sg\\Debug\\cmTC_f19ed.exe" /INCREMENTAL /ILK:"cmTC_f19ed.dir\\Debug\\cmTC_f19ed.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-raw9sg/Debug/cmTC_f19ed.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-raw9sg/Debug/cmTC_f19ed.lib" /MACHINE:X64 cmTC_f19ed.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_f19ed.vcxproj -> D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-raw9sg\\Debug\\cmTC_f19ed.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_96651.dir\\Debug\\cmTC_96651.tlog\\unsuccessfulbuild".
-          Touching "cmTC_96651.dir\\Debug\\cmTC_96651.tlog\\cmTC_96651.lastbuildstate".
-        Done Building Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2tqlb1\\cmTC_96651.vcxproj" (default targets).
+          Deleting file "cmTC_f19ed.dir\\Debug\\cmTC_f19ed.tlog\\unsuccessfulbuild".
+          Touching "cmTC_f19ed.dir\\Debug\\cmTC_f19ed.tlog\\cmTC_f19ed.lastbuildstate".
+        Done Building Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-raw9sg\\cmTC_f19ed.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:02.03
+        Time Elapsed 00:00:02.59
         
       exitCode: 0
   -
@@ -1052,8 +1052,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-09opkz"
-      binary: "D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-09opkz"
+      source: "D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-s32yfe"
+      binary: "D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-s32yfe"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od"
@@ -1064,40 +1064,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-09opkz'
+        Change Dir: 'D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-s32yfe'
         
-        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e3bf4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_57769.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.14+a129329f1 for .NET Framework
-        Build started 28/07/2025 19.41.39.
+        Build started 31/07/2025 14.00.08.
         
-        Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-09opkz\\cmTC_e3bf4.vcxproj" on node 1 (default targets).
+        Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-s32yfe\\cmTC_57769.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_e3bf4.dir\\Debug\\".
+          Creating directory "cmTC_57769.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-09opkz\\Debug\\".
-          Creating directory "cmTC_e3bf4.dir\\Debug\\cmTC_e3bf4.tlog\\".
+          Creating directory "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-s32yfe\\Debug\\".
+          Creating directory "cmTC_57769.dir\\Debug\\cmTC_57769.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_e3bf4.dir\\Debug\\cmTC_e3bf4.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_e3bf4.dir\\Debug\\cmTC_e3bf4.tlog\\unsuccessfulbuild".
+          Creating "cmTC_57769.dir\\Debug\\cmTC_57769.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_57769.dir\\Debug\\cmTC_57769.tlog\\unsuccessfulbuild".
         ClCompile:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_e3bf4.dir\\Debug\\\\" /Fd"cmTC_e3bf4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_57769.dir\\Debug\\\\" /Fd"cmTC_57769.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35213 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_e3bf4.dir\\Debug\\\\" /Fd"cmTC_e3bf4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_57769.dir\\Debug\\\\" /Fd"cmTC_57769.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-09opkz\\Debug\\cmTC_e3bf4.exe" /INCREMENTAL /ILK:"cmTC_e3bf4.dir\\Debug\\cmTC_e3bf4.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-09opkz/Debug/cmTC_e3bf4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-09opkz/Debug/cmTC_e3bf4.lib" /MACHINE:X64 cmTC_e3bf4.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_e3bf4.vcxproj -> D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-09opkz\\Debug\\cmTC_e3bf4.exe
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-s32yfe\\Debug\\cmTC_57769.exe" /INCREMENTAL /ILK:"cmTC_57769.dir\\Debug\\cmTC_57769.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-s32yfe/Debug/cmTC_57769.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/JavaScript/build/CMakeFiles/CMakeScratch/TryCompile-s32yfe/Debug/cmTC_57769.lib" /MACHINE:X64 cmTC_57769.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_57769.vcxproj -> D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-s32yfe\\Debug\\cmTC_57769.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_e3bf4.dir\\Debug\\cmTC_e3bf4.tlog\\unsuccessfulbuild".
-          Touching "cmTC_e3bf4.dir\\Debug\\cmTC_e3bf4.tlog\\cmTC_e3bf4.lastbuildstate".
-        Done Building Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-09opkz\\cmTC_e3bf4.vcxproj" (default targets).
+          Deleting file "cmTC_57769.dir\\Debug\\cmTC_57769.tlog\\unsuccessfulbuild".
+          Touching "cmTC_57769.dir\\Debug\\cmTC_57769.tlog\\cmTC_57769.lastbuildstate".
+        Done Building Project "D:\\Assembly Project\\Programming Language\\JavaScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-s32yfe\\cmTC_57769.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:01.50
+        Time Elapsed 00:00:02.09
         
       exitCode: 0
   -
