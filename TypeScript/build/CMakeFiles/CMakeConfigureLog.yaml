@@ -78,7 +78,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.14+a129329f1 for .NET Framework
-      Build started 28/07/2025 19.20.28.
+      Build started 31/07/2025 13.55.23.
       
       Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -107,7 +107,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:03.65
+      Time Elapsed 00:00:04.08
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -704,7 +704,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.14+a129329f1 for .NET Framework
-      Build started 28/07/2025 19.20.32.
+      Build started 31/07/2025 13.55.28.
       
       Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -733,7 +733,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.12
+      Time Elapsed 00:00:01.58
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -968,8 +968,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-csyv4x"
-      binary: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-csyv4x"
+      source: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt"
+      binary: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od"
@@ -979,40 +979,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-csyv4x'
+        Change Dir: 'D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt'
         
-        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a45e3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_437ad.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.14+a129329f1 for .NET Framework
-        Build started 28/07/2025 19.20.34.
+        Build started 31/07/2025 13.55.30.
         
-        Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-csyv4x\\cmTC_a45e3.vcxproj" on node 1 (default targets).
+        Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\cmTC_437ad.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_a45e3.dir\\Debug\\".
+          Creating directory "cmTC_437ad.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-csyv4x\\Debug\\".
-          Creating directory "cmTC_a45e3.dir\\Debug\\cmTC_a45e3.tlog\\".
+          Creating directory "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\Debug\\".
+          Creating directory "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_a45e3.dir\\Debug\\cmTC_a45e3.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_a45e3.dir\\Debug\\cmTC_a45e3.tlog\\unsuccessfulbuild".
+          Creating "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\unsuccessfulbuild".
         ClCompile:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_a45e3.dir\\Debug\\\\" /Fd"cmTC_a45e3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_437ad.dir\\Debug\\\\" /Fd"cmTC_437ad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35213 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_a45e3.dir\\Debug\\\\" /Fd"cmTC_a45e3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_437ad.dir\\Debug\\\\" /Fd"cmTC_437ad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-csyv4x\\Debug\\cmTC_a45e3.exe" /INCREMENTAL /ILK:"cmTC_a45e3.dir\\Debug\\cmTC_a45e3.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-csyv4x/Debug/cmTC_a45e3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-csyv4x/Debug/cmTC_a45e3.lib" /MACHINE:X64 cmTC_a45e3.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_a45e3.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-csyv4x\\Debug\\cmTC_a45e3.exe
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\Debug\\cmTC_437ad.exe" /INCREMENTAL /ILK:"cmTC_437ad.dir\\Debug\\cmTC_437ad.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt/Debug/cmTC_437ad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt/Debug/cmTC_437ad.lib" /MACHINE:X64 cmTC_437ad.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_437ad.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\Debug\\cmTC_437ad.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_a45e3.dir\\Debug\\cmTC_a45e3.tlog\\unsuccessfulbuild".
-          Touching "cmTC_a45e3.dir\\Debug\\cmTC_a45e3.tlog\\cmTC_a45e3.lastbuildstate".
-        Done Building Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-csyv4x\\cmTC_a45e3.vcxproj" (default targets).
+          Deleting file "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\unsuccessfulbuild".
+          Touching "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\cmTC_437ad.lastbuildstate".
+        Done Building Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\cmTC_437ad.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:02.06
+        Time Elapsed 00:00:02.18
         
       exitCode: 0
   -
@@ -1052,8 +1052,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-wr4g8y"
-      binary: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-wr4g8y"
+      source: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l"
+      binary: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od"
@@ -1064,40 +1064,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-wr4g8y'
+        Change Dir: 'D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l'
         
-        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_4cd52.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_71e33.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.14+a129329f1 for .NET Framework
-        Build started 28/07/2025 19.20.37.
+        Build started 31/07/2025 13.55.34.
         
-        Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wr4g8y\\cmTC_4cd52.vcxproj" on node 1 (default targets).
+        Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\cmTC_71e33.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_4cd52.dir\\Debug\\".
+          Creating directory "cmTC_71e33.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wr4g8y\\Debug\\".
-          Creating directory "cmTC_4cd52.dir\\Debug\\cmTC_4cd52.tlog\\".
+          Creating directory "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\Debug\\".
+          Creating directory "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_4cd52.dir\\Debug\\cmTC_4cd52.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_4cd52.dir\\Debug\\cmTC_4cd52.tlog\\unsuccessfulbuild".
+          Creating "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\unsuccessfulbuild".
         ClCompile:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_4cd52.dir\\Debug\\\\" /Fd"cmTC_4cd52.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_71e33.dir\\Debug\\\\" /Fd"cmTC_71e33.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35213 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_4cd52.dir\\Debug\\\\" /Fd"cmTC_4cd52.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_71e33.dir\\Debug\\\\" /Fd"cmTC_71e33.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wr4g8y\\Debug\\cmTC_4cd52.exe" /INCREMENTAL /ILK:"cmTC_4cd52.dir\\Debug\\cmTC_4cd52.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-wr4g8y/Debug/cmTC_4cd52.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-wr4g8y/Debug/cmTC_4cd52.lib" /MACHINE:X64 cmTC_4cd52.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_4cd52.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wr4g8y\\Debug\\cmTC_4cd52.exe
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\Debug\\cmTC_71e33.exe" /INCREMENTAL /ILK:"cmTC_71e33.dir\\Debug\\cmTC_71e33.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l/Debug/cmTC_71e33.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l/Debug/cmTC_71e33.lib" /MACHINE:X64 cmTC_71e33.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_71e33.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\Debug\\cmTC_71e33.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_4cd52.dir\\Debug\\cmTC_4cd52.tlog\\unsuccessfulbuild".
-          Touching "cmTC_4cd52.dir\\Debug\\cmTC_4cd52.tlog\\cmTC_4cd52.lastbuildstate".
-        Done Building Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wr4g8y\\cmTC_4cd52.vcxproj" (default targets).
+          Deleting file "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\unsuccessfulbuild".
+          Touching "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\cmTC_71e33.lastbuildstate".
+        Done Building Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\cmTC_71e33.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:01.78
+        Time Elapsed 00:00:02.10
         
       exitCode: 0
   -

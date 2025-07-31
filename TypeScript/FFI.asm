@@ -25,8 +25,6 @@ node_api_module_get_api_version_v1  proc
     ret
 node_api_module_get_api_version_v1  endp
 napi_register_module_v1             proc
-    mov     8[rsp], rcx
-    mov     16[rsp], rdx
     sub     rsp, 40
     call    Init
     add     rsp, 40
