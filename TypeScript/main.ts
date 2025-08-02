@@ -17,12 +17,12 @@ let lpPerformanceCount    = Buffer.alloc(8)
 if                        (!(FFI.QueryPerformanceFrequency(lpFrequency) && FFI.QueryPerformanceCounter(lpPerformanceCount))) FFI.ExitProcess(1)
 let frequency             = lpFrequency.readBigInt64LE(0)
 let counter               = lpPerformanceCount.readBigInt64LE(0)
-interface                 Timespec
+interface                 timespec
 {
   tv_sec: bigint
   tv_nsec: number
 }
-let time:                 Timespec = {tv_sec: counter / frequency, tv_nsec: Number((counter % frequency) * 1000000000n / frequency)}
+let time:                 timespec = {tv_sec: counter / frequency, tv_nsec: Number((counter % frequency) * 1000000000n / frequency)}
 let st, et, Cycles        = 0n, i = 100000
 do
 {
