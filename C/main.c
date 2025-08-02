@@ -17,7 +17,7 @@
 #include <emmintrin.h>
 #include <setjmp.h>
 #include <stdio.h>
-const   double      kB = 1024.0, mB = 1024.0 * 1024.0, gB = 1024.0 * 1024.0 * 1024.0;
+const double        kB = 1024.0, mB = 1024.0 * 1024.0, gB = 1024.0 * 1024.0 * 1024.0;
 unsigned long long  rdtscpf()
 {
     unsigned int        input;
