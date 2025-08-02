@@ -10,7 +10,7 @@ let lpPerformanceCount      = Buffer.alloc(8)
 if                          (!(FFI.QueryPerformanceFrequency(lpFrequency) && FFI.QueryPerformanceCounter(lpPerformanceCount))) FFI.ExitProcess(1)
 let frequency               = lpFrequency.readBigInt64LE(0)
 let counter                 = lpPerformanceCount.readBigInt64LE(0)
-class                       Timespec
+class                       timespec
 {
     constructor(tv_sec, tv_nsec)
     {
@@ -18,7 +18,7 @@ class                       Timespec
         this.tv_nsec    = Number(tv_nsec)
     }
 }
-let time                    = new Timespec(counter / frequency, (counter % frequency) * 1000000000n / frequency)
+let time                    = new timespec(counter / frequency, (counter % frequency) * 1000000000n / frequency)
 let st, et, Cycles          = 0n, i = 100000
 do
 {
