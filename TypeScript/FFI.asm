@@ -16,7 +16,7 @@ ExitProcess                 proto
     QueryPerformanceCounterv    db "QueryPerformanceCounter", 0
     ExitProcessv                db "ExitProcess", 0
     rdtscpfv                    db "rdtscpf", 0
-    earg                        db "Arguments not match in function call", 0
+    earg                        db "Arguments didn't match in function call", 0
     esize                       db "Must be at least 8 bytes", 0
     eint                        db "Invalid argument: expected an integer", 0
 .code
@@ -71,7 +71,6 @@ Error:
 Init                                endp
 _QueryPerformanceFrequency          proc
     mov     8[rsp], rcx
-    mov     16[rsp], rdx
     push    rdi
     sub     rsp, 96
     lea     rdi, 32[rsp]
@@ -85,6 +84,8 @@ _QueryPerformanceFrequency          proc
     call    napi_get_cb_info
     test    al, al
     jnz     e1
+    cmp     byte ptr 48[rsp], 1
+    jne     e1
     mov     rcx, 112[rsp]
     mov     rdx, 56[rsp]
     lea     r8, 64[rsp]
@@ -124,7 +125,6 @@ e3:
 _QueryPerformanceFrequency          endp
 _QueryPerformanceCounter            proc
     mov     8[rsp], rcx
-    mov     16[rsp], rdx
     push    rdi
     sub     rsp, 96
     lea     rdi, 32[rsp]
@@ -138,6 +138,8 @@ _QueryPerformanceCounter            proc
     call    napi_get_cb_info
     test    al, al
     jnz     e1
+    cmp     byte ptr 48[rsp], 1
+    jne     e1
     mov     rcx, 112[rsp]
     mov     rdx, 56[rsp]
     lea     r8, 64[rsp]
@@ -177,7 +179,6 @@ e3:
 _QueryPerformanceCounter            endp
 _ExitProcess                        proc
     mov     8[rsp], rcx
-    mov     16[rsp], rdx
     sub     rsp, 72
     lea     rdi, 32[rsp]
     xor     eax, eax
@@ -191,8 +192,7 @@ _ExitProcess                        proc
     test    al, al
     jnz     e1
     cmp     byte ptr 48[rsp], 1
-    jb      e1
-    ja      e1
+    jne     e1
     mov     rcx, 80[rsp]
     mov     rdx, 56[rsp]
     lea     r8, 64[rsp]
@@ -219,24 +219,43 @@ e2:
 _ExitProcess                        endp
 rdtscpf                             proc
     mov     8[rsp], rcx
-    mov     16[rsp], rdx
-    sub     rsp, 40
-    mov     qword ptr 32[rsp], 0
+    push    rdi
+    sub     rsp, 80
+    lea     rdi, 32[rsp]
+    xor     eax, eax
+    mov     ecx, 48
+    rep     stosb
+    mov     rcx, 96[rsp]
+    lea     r8, 48[rsp]
+    lea     r9, 56[rsp]
+    call    napi_get_cb_info
+    test    al, al
+    jnz     e0
+    cmp     byte ptr 48[rsp], 0
+    jne     e0
     lfence
     rdtscp
     lfence
     shl     rdx, 32
     or      rax, rdx
-    mov     rcx, 48[rsp]
-    lea     r8, 32[rsp]
+    mov     rcx, 96[rsp]
+    lea     r8, 64[rsp]
     mov     rdx, rax
     call    napi_create_bigint_uint64
     test    al, al
     jnz     Error
-    mov     rax, 32[rsp]
-    add     rsp, 40
+    mov     rax, 64[rsp]
+    add     rsp, 80
+    pop     rdi
     ret
 Error:
+    mov     ecx, 1
+    call    ExitProcess
+e0:
+    mov     rcx, 96[rsp]
+    xor     edx, edx
+    lea     r8, earg
+    call    napi_throw_type_error
     mov     ecx, 1
     call    ExitProcess
 rdtscpf                             endp

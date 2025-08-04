@@ -56,11 +56,14 @@ events:
         - "D:\\PostgreSQL\\17\\bin"
         - "D:\\Git LFS"
         - "D:\\Racket"
-        - "D:\\ArkScript\\bin"
+        - "D:\\Arturo\\arturo-full-x86_64-windows-latest"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\qjs\\bin"
         - "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\user\\AppData\\Roaming\\npm"
         - "C:\\Users\\user\\.deno\\bin"
+        - "C:\\Users\\user\\.dotnet\\tools"
         - "c:\\Users\\user\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "message-v1"
@@ -77,8 +80,8 @@ events:
       
       The output was:
       0
-      MSBuild version 17.14.14+a129329f1 for .NET Framework
-      Build started 31/07/2025 13.55.23.
+      MSBuild version 17.14.18+a338add32 for .NET Framework
+      Build started 04/08/2025 22.12.09.
       
       Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -88,12 +91,17 @@ events:
       InitializeBuildStatus:
         Creating "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         Touching "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "D:\\vcpkg\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
       ClCompile:
-        D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
         CMakeCCompilerId.c
       Link:
-        D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
         CompilerIdC.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdC\\CompilerIdC.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdC\\CompilerIdC.exe" "D:\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" "Debug\\vcpkg.applocal.log"
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
         :VCEnd
@@ -107,7 +115,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:04.08
+      Time Elapsed 00:00:03.35
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -161,11 +169,14 @@ events:
       - "D:/PostgreSQL/17/bin/"
       - "D:/Git LFS/"
       - "D:/Racket/"
-      - "D:/ArkScript/bin/"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/"
+      - "C:/Program Files/dotnet/"
+      - "D:/qjs/bin/"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/user/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/user/AppData/Roaming/npm/"
       - "C:/Users/user/.deno/bin/"
+      - "C:/Users/user/.dotnet/tools/"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "D:/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
@@ -193,11 +204,14 @@ events:
         - "D:\\PostgreSQL\\17\\bin"
         - "D:\\Git LFS"
         - "D:\\Racket"
-        - "D:\\ArkScript\\bin"
+        - "D:\\Arturo\\arturo-full-x86_64-windows-latest"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\qjs\\bin"
         - "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\user\\AppData\\Roaming\\npm"
         - "C:\\Users\\user\\.deno\\bin"
+        - "C:\\Users\\user\\.dotnet\\tools"
         - "c:\\Users\\user\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
@@ -243,11 +257,14 @@ events:
       - "D:/PostgreSQL/17/bin/"
       - "D:/Git LFS/"
       - "D:/Racket/"
-      - "D:/ArkScript/bin/"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/"
+      - "C:/Program Files/dotnet/"
+      - "D:/qjs/bin/"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/user/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/user/AppData/Roaming/npm/"
       - "C:/Users/user/.deno/bin/"
+      - "C:/Users/user/.dotnet/tools/"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "D:/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
@@ -305,11 +322,14 @@ events:
         - "D:\\PostgreSQL\\17\\bin"
         - "D:\\Git LFS"
         - "D:\\Racket"
-        - "D:\\ArkScript\\bin"
+        - "D:\\Arturo\\arturo-full-x86_64-windows-latest"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\qjs\\bin"
         - "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\user\\AppData\\Roaming\\npm"
         - "C:\\Users\\user\\.deno\\bin"
+        - "C:\\Users\\user\\.dotnet\\tools"
         - "c:\\Users\\user\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
@@ -353,11 +373,14 @@ events:
       - "D:/PostgreSQL/17/bin/"
       - "D:/Git LFS/"
       - "D:/Racket/"
-      - "D:/ArkScript/bin/"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/"
+      - "C:/Program Files/dotnet/"
+      - "D:/qjs/bin/"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/user/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/user/AppData/Roaming/npm/"
       - "C:/Users/user/.deno/bin/"
+      - "C:/Users/user/.dotnet/tools/"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "D:/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
@@ -385,11 +408,14 @@ events:
         - "D:\\PostgreSQL\\17\\bin"
         - "D:\\Git LFS"
         - "D:\\Racket"
-        - "D:\\ArkScript\\bin"
+        - "D:\\Arturo\\arturo-full-x86_64-windows-latest"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\qjs\\bin"
         - "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\user\\AppData\\Roaming\\npm"
         - "C:\\Users\\user\\.deno\\bin"
+        - "C:\\Users\\user\\.dotnet\\tools"
         - "c:\\Users\\user\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
@@ -433,11 +459,14 @@ events:
       - "D:/PostgreSQL/17/bin/"
       - "D:/Git LFS/"
       - "D:/Racket/"
-      - "D:/ArkScript/bin/"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/"
+      - "C:/Program Files/dotnet/"
+      - "D:/qjs/bin/"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/user/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/user/AppData/Roaming/npm/"
       - "C:/Users/user/.deno/bin/"
+      - "C:/Users/user/.dotnet/tools/"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "D:/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.com"
@@ -506,9 +535,15 @@ events:
       - "D:/Racket/mt.com"
       - "D:/Racket/mt.exe"
       - "D:/Racket/mt"
-      - "D:/ArkScript/bin/mt.com"
-      - "D:/ArkScript/bin/mt.exe"
-      - "D:/ArkScript/bin/mt"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/mt.com"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/mt.exe"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/mt"
+      - "C:/Program Files/dotnet/mt.com"
+      - "C:/Program Files/dotnet/mt.exe"
+      - "C:/Program Files/dotnet/mt"
+      - "D:/qjs/bin/mt.com"
+      - "D:/qjs/bin/mt.exe"
+      - "D:/qjs/bin/mt"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/mt.com"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/mt.exe"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/mt"
@@ -521,6 +556,9 @@ events:
       - "C:/Users/user/.deno/bin/mt.com"
       - "C:/Users/user/.deno/bin/mt.exe"
       - "C:/Users/user/.deno/bin/mt"
+      - "C:/Users/user/.dotnet/tools/mt.com"
+      - "C:/Users/user/.dotnet/tools/mt.exe"
+      - "C:/Users/user/.dotnet/tools/mt"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/mt.com"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/mt.exe"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/mt"
@@ -548,11 +586,14 @@ events:
         - "D:\\PostgreSQL\\17\\bin"
         - "D:\\Git LFS"
         - "D:\\Racket"
-        - "D:\\ArkScript\\bin"
+        - "D:\\Arturo\\arturo-full-x86_64-windows-latest"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\qjs\\bin"
         - "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\user\\AppData\\Roaming\\npm"
         - "C:\\Users\\user\\.deno\\bin"
+        - "C:\\Users\\user\\.dotnet\\tools"
         - "c:\\Users\\user\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
@@ -596,11 +637,14 @@ events:
       - "D:/PostgreSQL/17/bin/"
       - "D:/Git LFS/"
       - "D:/Racket/"
-      - "D:/ArkScript/bin/"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/"
+      - "C:/Program Files/dotnet/"
+      - "D:/qjs/bin/"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/user/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/user/AppData/Roaming/npm/"
       - "C:/Users/user/.deno/bin/"
+      - "C:/Users/user/.dotnet/tools/"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "D:/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.com"
@@ -628,11 +672,14 @@ events:
         - "D:\\PostgreSQL\\17\\bin"
         - "D:\\Git LFS"
         - "D:\\Racket"
-        - "D:\\ArkScript\\bin"
+        - "D:\\Arturo\\arturo-full-x86_64-windows-latest"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\qjs\\bin"
         - "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\user\\AppData\\Roaming\\npm"
         - "C:\\Users\\user\\.deno\\bin"
+        - "C:\\Users\\user\\.dotnet\\tools"
         - "c:\\Users\\user\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
@@ -682,11 +729,14 @@ events:
         - "D:\\PostgreSQL\\17\\bin"
         - "D:\\Git LFS"
         - "D:\\Racket"
-        - "D:\\ArkScript\\bin"
+        - "D:\\Arturo\\arturo-full-x86_64-windows-latest"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\qjs\\bin"
         - "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\user\\AppData\\Roaming\\npm"
         - "C:\\Users\\user\\.deno\\bin"
+        - "C:\\Users\\user\\.dotnet\\tools"
         - "c:\\Users\\user\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "message-v1"
@@ -703,8 +753,8 @@ events:
       
       The output was:
       0
-      MSBuild version 17.14.14+a129329f1 for .NET Framework
-      Build started 31/07/2025 13.55.28.
+      MSBuild version 17.14.18+a338add32 for .NET Framework
+      Build started 04/08/2025 22.12.13.
       
       Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -714,12 +764,17 @@ events:
       InitializeBuildStatus:
         Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "D:\\vcpkg\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
       ClCompile:
-        D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
         CMakeCXXCompilerId.cpp
       Link:
-        D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
         CompilerIdCXX.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdCXX\\CompilerIdCXX.exe
+      AppLocalFromInstalled:
+        pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\4.1.0-rc3\\CompilerIdCXX\\CompilerIdCXX.exe" "D:\\vcpkg\\installed\\x64-windows\\bin" "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" "Debug\\vcpkg.applocal.log"
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -733,7 +788,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.58
+      Time Elapsed 00:00:03.20
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -787,11 +842,14 @@ events:
       - "D:/PostgreSQL/17/bin/"
       - "D:/Git LFS/"
       - "D:/Racket/"
-      - "D:/ArkScript/bin/"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/"
+      - "C:/Program Files/dotnet/"
+      - "D:/qjs/bin/"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/user/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/user/AppData/Roaming/npm/"
       - "C:/Users/user/.deno/bin/"
+      - "C:/Users/user/.dotnet/tools/"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
@@ -869,9 +927,15 @@ events:
       - "D:/Racket/rc.com"
       - "D:/Racket/rc.exe"
       - "D:/Racket/rc"
-      - "D:/ArkScript/bin/rc.com"
-      - "D:/ArkScript/bin/rc.exe"
-      - "D:/ArkScript/bin/rc"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/rc.com"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/rc.exe"
+      - "D:/Arturo/arturo-full-x86_64-windows-latest/rc"
+      - "C:/Program Files/dotnet/rc.com"
+      - "C:/Program Files/dotnet/rc.exe"
+      - "C:/Program Files/dotnet/rc"
+      - "D:/qjs/bin/rc.com"
+      - "D:/qjs/bin/rc.exe"
+      - "D:/qjs/bin/rc"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/rc.com"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/rc.exe"
       - "C:/Users/user/AppData/Local/Microsoft/WindowsApps/rc"
@@ -884,6 +948,9 @@ events:
       - "C:/Users/user/.deno/bin/rc.com"
       - "C:/Users/user/.deno/bin/rc.exe"
       - "C:/Users/user/.deno/bin/rc"
+      - "C:/Users/user/.dotnet/tools/rc.com"
+      - "C:/Users/user/.dotnet/tools/rc.exe"
+      - "C:/Users/user/.dotnet/tools/rc"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/rc.com"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/rc.exe"
       - "C:/Users/user/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/rc"
@@ -947,11 +1014,14 @@ events:
         - "D:\\PostgreSQL\\17\\bin"
         - "D:\\Git LFS"
         - "D:\\Racket"
-        - "D:\\ArkScript\\bin"
+        - "D:\\Arturo\\arturo-full-x86_64-windows-latest"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\qjs\\bin"
         - "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\user\\AppData\\Roaming\\npm"
         - "C:\\Users\\user\\.deno\\bin"
+        - "C:\\Users\\user\\.dotnet\\tools"
         - "c:\\Users\\user\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
       CMAKE_INSTALL_PREFIX: "C:/Program Files/main"
       CMAKE_SYSTEM_PREFIX_PATH:
@@ -968,8 +1038,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt"
-      binary: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt"
+      source: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-did081"
+      binary: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-did081"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od"
@@ -979,40 +1049,45 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt'
+        Change Dir: 'D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-did081'
         
-        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_437ad.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
-        MSBuild version 17.14.14+a129329f1 for .NET Framework
-        Build started 31/07/2025 13.55.30.
+        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_1376f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.18+a338add32 for .NET Framework
+        Build started 04/08/2025 22.12.16.
         
-        Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\cmTC_437ad.vcxproj" on node 1 (default targets).
+        Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-did081\\cmTC_1376f.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_437ad.dir\\Debug\\".
+          Creating directory "cmTC_1376f.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\Debug\\".
-          Creating directory "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\".
+          Creating directory "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-did081\\Debug\\".
+          Creating directory "cmTC_1376f.dir\\Debug\\cmTC_1376f.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\unsuccessfulbuild".
+          Creating "cmTC_1376f.dir\\Debug\\cmTC_1376f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_1376f.dir\\Debug\\cmTC_1376f.tlog\\unsuccessfulbuild".
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
         ClCompile:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_437ad.dir\\Debug\\\\" /Fd"cmTC_437ad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_1376f.dir\\Debug\\\\" /Fd"cmTC_1376f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35213 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_437ad.dir\\Debug\\\\" /Fd"cmTC_437ad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          cl /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MTd /GS /fp:precise /Fo"cmTC_1376f.dir\\Debug\\\\" /Fd"cmTC_1376f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\Debug\\cmTC_437ad.exe" /INCREMENTAL /ILK:"cmTC_437ad.dir\\Debug\\cmTC_437ad.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt/Debug/cmTC_437ad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-4ehtjt/Debug/cmTC_437ad.lib" /MACHINE:X64 cmTC_437ad.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_437ad.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\Debug\\cmTC_437ad.exe
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-did081\\Debug\\cmTC_1376f.exe" /INCREMENTAL /ILK:"cmTC_1376f.dir\\Debug\\cmTC_1376f.ilk" /NOLOGO /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-did081/Debug/cmTC_1376f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-did081/Debug/cmTC_1376f.lib" /MACHINE:X64 cmTC_1376f.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_1376f.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-did081\\Debug\\cmTC_1376f.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-did081\\Debug\\cmTC_1376f.exe" "D:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_1376f.dir\\Debug\\cmTC_1376f.tlog\\cmTC_1376f.write.1u.tlog" "cmTC_1376f.dir\\Debug\\vcpkg.applocal.log"
         FinalizeBuildStatus:
-          Deleting file "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\unsuccessfulbuild".
-          Touching "cmTC_437ad.dir\\Debug\\cmTC_437ad.tlog\\cmTC_437ad.lastbuildstate".
-        Done Building Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4ehtjt\\cmTC_437ad.vcxproj" (default targets).
+          Deleting file "cmTC_1376f.dir\\Debug\\cmTC_1376f.tlog\\unsuccessfulbuild".
+          Touching "cmTC_1376f.dir\\Debug\\cmTC_1376f.tlog\\cmTC_1376f.lastbuildstate".
+        Done Building Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-did081\\cmTC_1376f.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:02.18
+        Time Elapsed 00:00:04.49
         
       exitCode: 0
   -
@@ -1052,8 +1127,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l"
-      binary: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l"
+      source: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-zdz1vd"
+      binary: "D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-zdz1vd"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od"
@@ -1064,40 +1139,45 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l'
+        Change Dir: 'D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-zdz1vd'
         
-        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_71e33.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
-        MSBuild version 17.14.14+a129329f1 for .NET Framework
-        Build started 31/07/2025 13.55.34.
+        Run Build Command(s): "D:/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d0e75.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.18+a338add32 for .NET Framework
+        Build started 04/08/2025 22.12.22.
         
-        Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\cmTC_71e33.vcxproj" on node 1 (default targets).
+        Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zdz1vd\\cmTC_d0e75.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_71e33.dir\\Debug\\".
+          Creating directory "cmTC_d0e75.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\Debug\\".
-          Creating directory "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\".
+          Creating directory "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zdz1vd\\Debug\\".
+          Creating directory "cmTC_d0e75.dir\\Debug\\cmTC_d0e75.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\unsuccessfulbuild".
+          Creating "cmTC_d0e75.dir\\Debug\\cmTC_d0e75.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_d0e75.dir\\Debug\\cmTC_d0e75.tlog\\unsuccessfulbuild".
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\vcpkg\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
         ClCompile:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_71e33.dir\\Debug\\\\" /Fd"cmTC_71e33.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_d0e75.dir\\Debug\\\\" /Fd"cmTC_d0e75.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35213 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_71e33.dir\\Debug\\\\" /Fd"cmTC_71e33.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /I"D:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MTd /GS /fp:precise /Fo"cmTC_d0e75.dir\\Debug\\\\" /Fd"cmTC_d0e75.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\Debug\\cmTC_71e33.exe" /INCREMENTAL /ILK:"cmTC_71e33.dir\\Debug\\cmTC_71e33.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l/Debug/cmTC_71e33.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-j3xz4l/Debug/cmTC_71e33.lib" /MACHINE:X64 cmTC_71e33.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_71e33.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\Debug\\cmTC_71e33.exe
+          D:\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zdz1vd\\Debug\\cmTC_d0e75.exe" /INCREMENTAL /ILK:"cmTC_d0e75.dir\\Debug\\cmTC_d0e75.ilk" /NOLOGO /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-zdz1vd/Debug/cmTC_d0e75.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Assembly Project/Programming Language/TypeScript/build/CMakeFiles/CMakeScratch/TryCompile-zdz1vd/Debug/cmTC_d0e75.lib" /MACHINE:X64 cmTC_d0e75.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_d0e75.vcxproj -> D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zdz1vd\\Debug\\cmTC_d0e75.exe
+        AppLocalFromInstalled:
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "D:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zdz1vd\\Debug\\cmTC_d0e75.exe" "D:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_d0e75.dir\\Debug\\cmTC_d0e75.tlog\\cmTC_d0e75.write.1u.tlog" "cmTC_d0e75.dir\\Debug\\vcpkg.applocal.log"
         FinalizeBuildStatus:
-          Deleting file "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\unsuccessfulbuild".
-          Touching "cmTC_71e33.dir\\Debug\\cmTC_71e33.tlog\\cmTC_71e33.lastbuildstate".
-        Done Building Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j3xz4l\\cmTC_71e33.vcxproj" (default targets).
+          Deleting file "cmTC_d0e75.dir\\Debug\\cmTC_d0e75.tlog\\unsuccessfulbuild".
+          Touching "cmTC_d0e75.dir\\Debug\\cmTC_d0e75.tlog\\cmTC_d0e75.lastbuildstate".
+        Done Building Project "D:\\Assembly Project\\Programming Language\\TypeScript\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zdz1vd\\cmTC_d0e75.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:02.10
+        Time Elapsed 00:00:03.18
         
       exitCode: 0
   -
@@ -1176,11 +1256,14 @@ events:
         - "D:\\PostgreSQL\\17\\bin"
         - "D:\\Git LFS"
         - "D:\\Racket"
-        - "D:\\ArkScript\\bin"
+        - "D:\\Arturo\\arturo-full-x86_64-windows-latest"
+        - "C:\\Program Files\\dotnet\\"
+        - "D:\\qjs\\bin"
         - "C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\user\\AppData\\Roaming\\npm"
         - "C:\\Users\\user\\.deno\\bin"
+        - "C:\\Users\\user\\.dotnet\\tools"
         - "c:\\Users\\user\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
       CMAKE_INSTALL_PREFIX: "C:/Program Files/main"
       CMAKE_SYSTEM_PREFIX_PATH:
