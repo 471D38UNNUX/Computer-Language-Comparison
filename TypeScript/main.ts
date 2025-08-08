@@ -42,7 +42,7 @@ try
   if        (Size > gB) console.log("File size: " + (Size / gB).toFixed(3) + " GB")
   else      if (Size > mB) console.log("File size: " + (Size / mB).toFixed(3) + " MB")
   else      if (Size > kB) console.log("File size: " + (Size / kB).toFixed(3) + " KB")
-  else      console.log("File size: " + Size.toString + " bytes")
+  else      console.log("File size: " + Size.toString() + " bytes")
   FFI.ExitProcess(0)
 }                         catch (error) {FFI.ExitProcess(1)}
 
