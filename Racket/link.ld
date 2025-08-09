@@ -17,6 +17,5 @@ SECTIONS
   {
     LONG (0); LONG (0); LONG (0); LONG (0); LONG (0);
     . = ALIGN(8);
-    *(.idata$6 .idata$7)
   }
 }
