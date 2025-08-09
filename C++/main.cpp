@@ -32,8 +32,7 @@ int                 main()
     auto elapsedTime            = static_cast<double>((counter.QuadPart / frequency.QuadPart) - time.tv_sec) + static_cast<double>(static_cast<int>((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart) - time.tv_nsec) / 1000000000.0;
     try
     {
-        auto fp     = "main.exe";
-        auto Size   = file_size(fp);
+        auto Size   = file_size("main.exe");
         cout        << "Total Cycles " << Cycles << endl;
         cout        << "Time taken: " << static_cast<long long>(elapsedTime) / 3600 << " hours " << static_cast<long long>(elapsedTime) % 3600 / 60 << " minutes " << fixed << setprecision(6) << static_cast<double>(static_cast<long long>(elapsedTime) % 60) + elapsedTime - static_cast<double>(static_cast<long long>(elapsedTime)) << " seconds" << endl;
         cout        << "Approx CPU frequency: " << static_cast<double>(Cycles) / elapsedTime / 1.0e9 << " GHz" << endl;
