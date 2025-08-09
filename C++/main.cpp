@@ -34,7 +34,7 @@ int                 main()
     {
         auto Size   = file_size("main.exe");
         cout        << "Total Cycles " << Cycles << endl;
-        cout        << "Time taken: " << static_cast<long long>(elapsedTime) / 3600 << " hours " << static_cast<long long>(elapsedTime) % 3600 / 60 << " minutes " << fixed << setprecision(6) << static_cast<double>(static_cast<long long>(elapsedTime) % 60) + elapsedTime - static_cast<double>(static_cast<long long>(elapsedTime)) << " seconds" << endl;
+        cout        << "Time taken: " << static_cast<unsigned long long>(elapsedTime) / 3600 << " hours " << static_cast<unsigned long long>(elapsedTime) % 3600 / 60 << " minutes " << fixed << setprecision(6) << static_cast<double>(static_cast<unsigned long long>(elapsedTime) % 60) + elapsedTime - static_cast<double>(static_cast<unsigned long long>(elapsedTime)) << " seconds" << endl;
         cout        << "Approx CPU frequency: " << static_cast<double>(Cycles) / elapsedTime / 1.0e9 << " GHz" << endl;
         if          (static_cast<double>(Size) > gB)  cout << "File size: " << fixed << setprecision(3) << static_cast<double>(Size) / gB << " GB" << endl;
         else        if (static_cast<double>(Size) > mB)  cout << "File size: " << fixed << setprecision(3) << static_cast<double>(Size) / mB << " MB" << endl;
