@@ -20,11 +20,11 @@
 const double        kB = 1024.0, mB = 1024.0 * 1024.0, gB = 1024.0 * 1024.0 * 1024.0;
 unsigned long long  rdtscpf()
 {
-    unsigned int        input;
+    unsigned int                input;
     _mm_lfence();
-    unsigned long long  output = __rdtscp(&input);
+    unsigned long long output   = __rdtscp(&input);
     _mm_lfence();
-    return              output;
+    return                      output;
 }
 int                 mainCRTStartup()
 {
@@ -40,7 +40,7 @@ int                 mainCRTStartup()
         Cycles  += et, i--;
     }                   while (i > 0);
     if                  (!QueryPerformanceCounter(&counter)) ExitProcess(1);
-    double              elapsedTime = (double)((counter.QuadPart / frequency.QuadPart) - time.tv_sec) + (double)((int)((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart) - time.tv_nsec) / 1000000000.0;
+    double elapsedTime  = (double)((counter.QuadPart / frequency.QuadPart) - time.tv_sec) + (double)((int)((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart) - time.tv_nsec) / 1000000000.0;
     jmp_buf             buf;
     if                  (setjmp(buf)) ExitProcess(1);
     FILE                *fp;
