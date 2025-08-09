@@ -21,7 +21,7 @@ int                 main()
     if                          (!(QueryPerformanceFrequency(&frequency) && QueryPerformanceCounter(&counter))) ExitProcess(1);
     timespec                    time = {(counter.QuadPart / frequency.QuadPart), static_cast<int>((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart)};
     unsigned long long          st, et, Size, Cycles = 0;
-    auto                        i = 100000;
+    auto i                      = 100000;
     do
     {
         st      = rdtscpf();
@@ -29,7 +29,7 @@ int                 main()
         Cycles  += et, i--;
     }                           while (i > 0);
     if                          (!QueryPerformanceCounter(&counter)) ExitProcess(1);
-    auto                        elapsedTime = static_cast<double>((counter.QuadPart / frequency.QuadPart) - time.tv_sec) + static_cast<double>(static_cast<int>((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart) - time.tv_nsec) / 1000000000.0;
+    auto elapsedTime            = static_cast<double>((counter.QuadPart / frequency.QuadPart) - time.tv_sec) + static_cast<double>(static_cast<int>((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart) - time.tv_nsec) / 1000000000.0;
     try
     {
         auto fp     = "main.exe";
