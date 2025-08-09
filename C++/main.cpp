@@ -6,7 +6,7 @@
 #include <filesystem>
 using namespace std;
 using namespace std::filesystem;
-const double        kB = 1024.0, mB = 1024.0 * 1024.0, gB = 1024.0 * 1024.0 * 1024.0;
+const double kB     = 1024.0, mB = 1024.0 * 1024.0, gB = 1024.0 * 1024.0 * 1024.0;
 unsigned long long  rdtscpf()
 {
     unsigned int    input;
@@ -17,19 +17,19 @@ unsigned long long  rdtscpf()
 }
 int                 main()
 {
-    LARGE_INTEGER               frequency, counter;
-    if                          (!(QueryPerformanceFrequency(&frequency) && QueryPerformanceCounter(&counter))) ExitProcess(1);
-    timespec                    time = {(counter.QuadPart / frequency.QuadPart), static_cast<int>((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart)};
-    unsigned long long          st, et, Size, Cycles = 0;
-    auto i                      = 100000;
+    LARGE_INTEGER       frequency, counter;
+    if                  (!(QueryPerformanceFrequency(&frequency) && QueryPerformanceCounter(&counter))) ExitProcess(1);
+    timespec            time = {(counter.QuadPart / frequency.QuadPart), static_cast<int>((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart)};
+    unsigned long long  st, et, Size, Cycles = 0;
+    auto i              = 100000;
     do
     {
         st      = rdtscpf();
         et      = rdtscpf() - st;
         Cycles  += et, i--;
-    }                           while (i > 0);
-    if                          (!QueryPerformanceCounter(&counter)) ExitProcess(1);
-    auto elapsedTime            = static_cast<double>((counter.QuadPart / frequency.QuadPart) - time.tv_sec) + static_cast<double>(static_cast<int>((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart) - time.tv_nsec) / 1000000000.0;
+    }                   while (i > 0);
+    if                  (!QueryPerformanceCounter(&counter)) ExitProcess(1);
+    auto elapsedTime    = static_cast<double>((counter.QuadPart / frequency.QuadPart) - time.tv_sec) + static_cast<double>(static_cast<int>((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart) - time.tv_nsec) / 1000000000.0;
     try
     {
         auto Size   = file_size("main.exe");
@@ -41,6 +41,5 @@ int                 main()
         else        if (static_cast<double>(Size) > kB)  cout << "File size: " << fixed << setprecision(3) << static_cast<double>(Size) / kB << " KB" << endl;
         else        cout << "File size: " << Size << " bytes" << endl;
         ExitProcess(0);
-    }
-    catch(filesystem_error &e)  {ExitProcess(1);}
+    }                   catch(filesystem_error &e) {ExitProcess(1);}
 }
