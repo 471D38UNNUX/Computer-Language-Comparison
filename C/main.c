@@ -32,7 +32,7 @@ int                 mainCRTStartup()
     if                  (!(QueryPerformanceFrequency(&frequency) && QueryPerformanceCounter(&counter))) ExitProcess(1);
     struct              timespec time = {.tv_sec = (counter.QuadPart / frequency.QuadPart), .tv_nsec = (int)((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart)};
     unsigned long long  st, et, Size, Cycles = 0;
-    unsigned int        i = 100000;
+    unsigned int i      = 100000;
     do
     {
         st      = rdtscpf();
