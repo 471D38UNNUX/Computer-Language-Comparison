@@ -5,10 +5,6 @@ SECTIONS
   {
     *(.text .data .bss)
   }
-  .edata :
-  {
-    *(.edata)
-  }
   /DISCARD/ :
   {
     *(.debug* .drectve .note.GNU-stack .gnu.lto_* .gnu_object_only)
