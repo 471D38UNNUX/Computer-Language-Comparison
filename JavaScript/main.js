@@ -1,6 +1,6 @@
 /*
 as FFI.asm -o FFI.obj
-ld -shared FFI.obj --file-alignment=4 --section-alignment=4 --disable-reloc-section -Tlink.ld -L"Path\lib" -lkernel32 -lqjs -o FFI.dll
+ld -s -shared FFI.obj --file-alignment=4 --section-alignment=4 --disable-reloc-section -Tlink.ld -L"Path\lib" -lkernel32 -lqjs -o FFI.dll
 qjs -c main.js -o main.exe
 */
 import {QueryPerformanceFrequency, QueryPerformanceCounter, ExitProcess, rdtscpf} from "FFI.dll"

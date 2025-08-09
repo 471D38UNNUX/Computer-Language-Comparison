@@ -3,11 +3,7 @@ SECTIONS
   . = SIZEOF_HEADERS;
   .text  0x180000000 + . :
   {
-    *(.text .data)
-  }
-  .bss :
-  {
-    *(.bss)
+    *(.text .data .bss)
   }
   .edata :
   {
