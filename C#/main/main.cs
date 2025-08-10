@@ -16,7 +16,7 @@ static ulong    rdtscpf()
     Sse2.LoadFence();
     ulong output        = _rdtscp();
     Sse2.LoadFence();
-    return          output;
+    return              output;
 }
 const double kB = 1024.0, mB = 1024.0 * 1024.0, gB = 1024.0 * 1024.0 * 1024.0;
 unsafe
