@@ -1,0 +1,4 @@
+D:\Assembly Project\Programming Language\ASP.NET\main\bin\Release\net9.0\win-x64\publish\appsettings.Development.json
+D:\Assembly Project\Programming Language\ASP.NET\main\bin\Release\net9.0\win-x64\publish\appsettings.json
+D:\Assembly Project\Programming Language\ASP.NET\main\bin\Release\net9.0\win-x64\publish\main.exe
+D:\Assembly Project\Programming Language\ASP.NET\main\bin\Release\net9.0\win-x64\publish\aspnetcorev2_inprocess.dll
