@@ -11,7 +11,7 @@ using System.Runtime.Intrinsics.X86;
 using System.IO;
 static ulong    rdtscpf()
 {
-    [DllImport("../../../../../../rdtscp.dll")]
+    [DllImport("../../../../../rdtscp.dll")]
     static extern ulong _rdtscp();
     Sse2.LoadFence();
     ulong output        = _rdtscp();
@@ -47,8 +47,7 @@ unsafe
     double elapsedTime  = (double)(counter / frequency - time.tv_sec) + (double)((int)(counter % frequency * 1000000000 / frequency) - time.tv_nsec) / 1000000000.0;
     try
     {
-        FileInfo fp = new FileInfo("main.exe");
-        Size        = (ulong)fp.Length;
+        Size        = (ulong)new FileInfo("main.exe").Length;
         Console.WriteLine($"Total Cycles {Cycles}");
         Console.WriteLine($"Time taken: {(ulong)elapsedTime / 3600} hours {(ulong)elapsedTime % 3600 / 60} minutes {(double)((ulong)elapsedTime % 60) + elapsedTime - (double)(ulong)elapsedTime:F6} seconds");
         Console.WriteLine($"Approx CPU frequency: {(double)Cycles / elapsedTime / 1.0e9:F6} GHz");
