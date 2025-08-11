@@ -51,11 +51,6 @@ static unsafe double    TimeStampCount(ulong *Cycles)
     if                  (!QueryPerformanceCounter(&counter)) return double.NaN;
     return              (double)(counter / frequency - time.tv_sec) + (double)((int)(counter % frequency * 1000000000 / frequency) - time.tv_nsec) / 1000000000.0;
 }
-static ulong            GetFileSize(string path)
-{
-    FileInfo fp = new FileInfo(path);
-    return      (ulong)fp.Length;
-}
 app.MapGet("/", () =>
 {
     unsafe
@@ -65,8 +60,8 @@ app.MapGet("/", () =>
         if                  (double.IsNaN(elapsedTime)) return Results.BadRequest(1);
         try
         {
-            Size = GetFileSize("main.exe");
-            return Results.Text($"Total Cycles {Cycles}\n" +
+            Size    = (ulong)new FileInfo("main.exe").Length;
+            return  Results.Text($"Total Cycles {Cycles}\n" +
                 $"Time taken: {(ulong)elapsedTime / 3600} hours {(ulong)elapsedTime % 3600 / 60} minutes {(double)((ulong)elapsedTime % 60) + elapsedTime - (double)(ulong)elapsedTime:F6} seconds\n" +
                 $"Approx CPU frequency: {(double)Cycles / elapsedTime / 1.0e9:F6} GHz\n" +
                 (
@@ -104,7 +99,7 @@ app.MapGet("/Size", () =>
 {
     try
     {
-        ulong Size  = GetFileSize("main.exe");
+        ulong Size  = (ulong)new FileInfo("main.exe").Length;
         return      Results.Text((double)Size > gB ? $"File size: {(double)Size / gB:F3} GB" :
             (double)Size > mB ? $"File size: {(double)Size / mB:F3} MB" :
             (double)Size > kB ? $"File size: {(double)Size / kB:F3} KB" :
