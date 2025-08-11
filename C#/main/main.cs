@@ -51,9 +51,9 @@ unsafe
         Console.WriteLine($"Total Cycles {Cycles}");
         Console.WriteLine($"Time taken: {(ulong)elapsedTime / 3600} hours {(ulong)elapsedTime % 3600 / 60} minutes {(double)((ulong)elapsedTime % 60) + elapsedTime - (double)(ulong)elapsedTime:F6} seconds");
         Console.WriteLine($"Approx CPU frequency: {(double)Cycles / elapsedTime / 1.0e9:F6} GHz");
-        if          ((double)Size > gB) Console.WriteLine($"File size: {(double)Size / gB:F3} GB");
-        else        if ((double)Size > mB) Console.WriteLine($"File size: {(double)Size / mB:F3} MB");
-        else        if ((double)Size > kB) Console.WriteLine($"File size: {(double)Size / kB:F3} KB");
+        if          ((double)Size >= gB) Console.WriteLine($"File size: {(double)Size / gB:F3} GB");
+        else        if ((double)Size >= mB) Console.WriteLine($"File size: {(double)Size / mB:F3} MB");
+        else        if ((double)Size >= kB) Console.WriteLine($"File size: {(double)Size / kB:F3} KB");
         else        Console.WriteLine($"File size: {Size} bytes");
         ExitProcess(0);
     }
