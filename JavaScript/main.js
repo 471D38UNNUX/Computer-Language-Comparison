@@ -39,9 +39,9 @@ try
     console.log("Total Cycles " + Cycles)
     console.log("Time taken: " + (BigInt(Math.trunc(elapsedTime)) / 3600n) + " hours " + (BigInt(Math.trunc(elapsedTime)) % 3600n / 60n) + " minutes " + (Number(BigInt(Math.trunc(elapsedTime)) % 60n) + elapsedTime - Math.trunc(elapsedTime)).toFixed(6) + " seconds")
     console.log("Approx CPU frequency: " + (Number(Cycles) / elapsedTime / 1.0e9).toFixed(6) + " GHz")
-    if        (Size > gB) console.log("File size: " + (Size / gB).toFixed(3) + " GB")
-    else      if (Size > mB) console.log("File size: " + (Size / mB).toFixed(3) + " MB")
-    else      if (Size > kB) console.log("File size: " + (Size / kB).toFixed(3) + " KB")
+    if        (Size >= gB) console.log("File size: " + (Size / gB).toFixed(3) + " GB")
+    else      if (Size >= mB) console.log("File size: " + (Size / mB).toFixed(3) + " MB")
+    else      if (Size >= kB) console.log("File size: " + (Size / kB).toFixed(3) + " KB")
     else      console.log("File size: " + Size + " bytes")
     ExitProcess(0)
 }                       catch (error) {ExitProcess(1)}
