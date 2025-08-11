@@ -14,7 +14,6 @@
 #include <processthreadsapi.h>
 #include <time.h>
 #include <intrin.h>
-#include <emmintrin.h>
 #include <setjmp.h>
 #include <stdio.h>
 const double kB     = 1024.0, mB = 1024.0 * 1024.0, gB = 1024.0 * 1024.0 * 1024.0;
@@ -51,9 +50,9 @@ int                 mainCRTStartup()
     printf_s("Total Cycles %llu\n", Cycles);
     printf_s("Time taken: %llu hours %llu minutes %f seconds\n", (unsigned long long)elapsedTime / 3600, (unsigned long long)elapsedTime % 3600 / 60, (double)((unsigned long long)elapsedTime % 60) + elapsedTime - (double)(unsigned long long)elapsedTime);
     printf_s("Approx CPU frequency: %f GHz\n", (double)Cycles / elapsedTime / 1.0e9);
-    if                  ((double)Size > gB) printf_s("File size: %.3f GB\n", (double)Size / gB);
-    else                if ((double)Size > mB) printf_s("File size: %.3f MB\n", (double)Size / mB);
-    else                if ((double)Size > kB) printf_s("File size: %.3f KB\n", (double)Size / kB);
+    if                  ((double)Size >= gB) printf_s("File size: %.3f GB\n", (double)Size / gB);
+    else                if ((double)Size >= mB) printf_s("File size: %.3f MB\n", (double)Size / mB);
+    else                if ((double)Size >= kB) printf_s("File size: %.3f KB\n", (double)Size / kB);
     else                printf_s("File size: %u bytes\n", (unsigned int)Size);
     ExitProcess(0);
 }
