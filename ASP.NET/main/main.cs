@@ -100,9 +100,9 @@ app.MapGet("/Size", () =>
     try
     {
         ulong Size  = (ulong)new FileInfo("main.exe").Length;
-        return      Results.Text((double)Size > gB ? $"File size: {(double)Size / gB:F3} GB" :
-            (double)Size > mB ? $"File size: {(double)Size / mB:F3} MB" :
-            (double)Size > kB ? $"File size: {(double)Size / kB:F3} KB" :
+        return      Results.Text((double)Size >= gB ? $"File size: {(double)Size / gB:F3} GB" :
+            (double)Size >= mB ? $"File size: {(double)Size / mB:F3} MB" :
+            (double)Size >= kB ? $"File size: {(double)Size / kB:F3} KB" :
             $"File size: {Size} bytes");
     }
     catch   (System.Exception) {return Results.BadRequest(1);}
