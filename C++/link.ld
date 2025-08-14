@@ -1,9 +1,9 @@
 SECTIONS
 {
   . = SIZEOF_HEADERS;
-  .text  __image_base__ + ( __section_alignment__ < 0x1000 ? . : __section_alignment__ ) :
+  .text  0x140000000 + ( __section_alignment__ < 0x1000 ? . : __section_alignment__ ) :
   {
-    *(.text* .xdata* .pdata* .data .rsrc .ctors*)
+    *(.text* .xdata* .data .rsrc .ctors*)
   }
   .rdata BLOCK(__section_alignment__) :
   {
@@ -26,5 +26,9 @@ SECTIONS
     SORT(*)(.idata$5)
     __IAT_end__ = .;
     *(.idata$6 .idata$7)
+  }
+  .pdata BLOCK(__section_alignment__) :
+  {
+    *(.pdata*)
   }
 }
