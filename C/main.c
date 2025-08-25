@@ -30,7 +30,7 @@ int                 mainCRTStartup()
     LARGE_INTEGER       frequency, counter;
     if                  (!(QueryPerformanceFrequency(&frequency) && QueryPerformanceCounter(&counter))) ExitProcess(1);
     struct              timespec time = {.tv_sec = (counter.QuadPart / frequency.QuadPart), .tv_nsec = (int)((counter.QuadPart % frequency.QuadPart) * 1000000000 / frequency.QuadPart)};
-    unsigned long long  st, et, Size, Cycles = 0;
+    unsigned long long  st, et, Cycles = 0;
     unsigned int i      = 100000;
     do
     {
@@ -45,7 +45,7 @@ int                 mainCRTStartup()
     FILE                *fp;
     if                  (fopen_s(&fp, "main.exe", "rb")) longjmp(buf, 1);
     fseek(fp, 0, SEEK_END);
-    Size                = _ftelli64(fp);
+    int Size            = ftell(fp);
     fclose(fp);
     printf_s("Total Cycles %llu\n", Cycles);
     printf_s("Time taken: %llu hours %llu minutes %f seconds\n", (unsigned long long)elapsedTime / 3600, (unsigned long long)elapsedTime % 3600 / 60, (double)((unsigned long long)elapsedTime % 60) + elapsedTime - (double)(unsigned long long)elapsedTime);
