@@ -56,8 +56,7 @@ unsafe
         else        if ((double)Size >= kB) Console.WriteLine($"File size: {(double)Size / kB:F3} KB");
         else        Console.WriteLine($"File size: {Size} bytes");
         ExitProcess(0);
-    }
-    catch               (Exception) {ExitProcess(1);}
+    }               catch(Exception) {ExitProcess(1);}
 }
 public struct   Timespec
 {
