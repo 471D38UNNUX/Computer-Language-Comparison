@@ -1,0 +1,13 @@
+FileVersion = 1
+Projects = {main = {Path = "."}}
+
+[Workspace]
+StartupProject = "main"
+
+[Configs.Release.Win64]
+BfOptimizationLevel = "O3"
+AllocType = "TCMalloc"
+EmitDebugInfo = "No"
+RuntimeKind = "Reduced"
+ReflectKind = "Minimal"
+IntermediateType = "BitcodeAndIRCode"

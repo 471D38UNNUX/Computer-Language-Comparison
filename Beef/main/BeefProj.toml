@@ -1,0 +1,13 @@
+FileVersion = 1
+
+[Project]
+Name = "main"
+StartupObject = "Program"
+
+[[Project.DistinctOptions]]
+Filter = ""
+
+[Configs.Release.Win64]
+CLibType = "Dynamic"
+BeefLibType = "Dynamic"
+PreBuildCmds = ["as src/RDTSCP.asm -o lib/RDTSCP.obj", "ld -s -shared lib/RDTSCP.obj --file-alignment=1 --section-alignment=1 --disable-reloc-section -Tsrc/link.ld -o lib/rdtscp.dll"]
