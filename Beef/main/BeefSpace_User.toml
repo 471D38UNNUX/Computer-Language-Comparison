@@ -49,8 +49,7 @@ TabWidth = 73.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "src\\main.bf"
-CursorPos = 1357
-VertPos = 360.0
+CursorPos = 1418
 ProjectName = "main"
 
 [[MainDockingFrame.DockedWidgets]]
