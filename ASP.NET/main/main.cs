@@ -55,13 +55,13 @@ app.MapGet("/", () =>
 {
     unsafe
     {
-        ulong               Size, Cycles;
-        double elapsedTime  = TimeStampCount(&Cycles);
-        if                  (double.IsNaN(elapsedTime)) return Results.BadRequest(1);
+        ulong           Cycles;
+        var elapsedTime = TimeStampCount(&Cycles);
+        if              (double.IsNaN(elapsedTime)) return Results.BadRequest(1);
         try
         {
-            Size    = (ulong)new FileInfo("main.exe").Length;
-            return  Results.Text($"Total Cycles {Cycles}\n" +
+            long Size   = new FileInfo("main.exe").Length;
+            return      Results.Text($"Total Cycles {Cycles}\n" +
                 $"Time taken: {(ulong)elapsedTime / 3600} hours {(ulong)elapsedTime % 3600 / 60} minutes {(double)((ulong)elapsedTime % 60) + elapsedTime - (double)(ulong)elapsedTime:F6} seconds\n" +
                 $"Approx CPU frequency: {(double)Cycles / elapsedTime / 1.0e9:F6} GHz\n" +
                 (
@@ -70,8 +70,7 @@ app.MapGet("/", () =>
                     (double)Size > kB ? $"File size: {(double)Size / kB:F3} KB" :
                     $"File size: {Size} bytes"
                 ));
-        }
-        catch (System.Exception) { return Results.BadRequest(1); }
+        }               catch(System.Exception) { return Results.BadRequest(1); }
     }
 });
 app.MapGet("/Cycle", () => $"Total Cycles {CycleCount()}");
@@ -79,27 +78,27 @@ app.MapGet("/Time", () =>
 {
     unsafe
     {
-        ulong               Cycles;
-        double elapsedTime  = TimeStampCount(&Cycles);
-        if                  (double.IsNaN(elapsedTime)) return Results.BadRequest(1);
-        return              Results.Text($"Time taken: {(ulong)elapsedTime / 3600} hours {(ulong)elapsedTime % 3600 / 60} minutes {(double)((ulong)elapsedTime % 60) + elapsedTime - (double)(ulong)elapsedTime:F6} seconds\n");
+        ulong           Cycles;
+        var elapsedTime = TimeStampCount(&Cycles);
+        if              (double.IsNaN(elapsedTime)) return Results.BadRequest(1);
+        return          Results.Text($"Time taken: {(ulong)elapsedTime / 3600} hours {(ulong)elapsedTime % 3600 / 60} minutes {(double)((ulong)elapsedTime % 60) + elapsedTime - (double)(ulong)elapsedTime:F6} seconds\n");
     }
 });
 app.MapGet("/Frequency", () =>
 {
     unsafe
     {
-        ulong               Cycles;
-        double elapsedTime  = TimeStampCount(&Cycles);
-        if                  (double.IsNaN(elapsedTime)) return Results.BadRequest(1);
-        return              Results.Text($"Approx CPU frequency: {(double)Cycles / elapsedTime / 1.0e9:F6} GHz\n");
+        ulong           Cycles;
+        var elapsedTime = TimeStampCount(&Cycles);
+        if              (double.IsNaN(elapsedTime)) return Results.BadRequest(1);
+        return          Results.Text($"Approx CPU frequency: {(double)Cycles / elapsedTime / 1.0e9:F6} GHz\n");
     }
 });
 app.MapGet("/Size", () =>
 {
     try
     {
-        ulong Size  = (ulong)new FileInfo("main.exe").Length;
+        long Size   = new FileInfo("main.exe").Length;
         return      Results.Text((double)Size >= gB ? $"File size: {(double)Size / gB:F3} GB" :
             (double)Size >= mB ? $"File size: {(double)Size / mB:F3} MB" :
             (double)Size >= kB ? $"File size: {(double)Size / kB:F3} KB" :
