@@ -27,27 +27,27 @@ unsafe
     static extern bool QueryPerformanceCounter(long *lpPerformanceCount);
     [DllImport("kernel32.dll")]
     static extern void ExitProcess(uint uExitCode);
-    long                frequency, counter;
-    if                  (!(QueryPerformanceFrequency(&frequency) && QueryPerformanceCounter(&counter))) ExitProcess(1);
-    Timespec time = new()
+    long            frequency, counter;
+    if              (!(QueryPerformanceFrequency(&frequency) && QueryPerformanceCounter(&counter))) ExitProcess(1);
+    Timespec time   = new()
     {
         tv_sec  = counter / frequency,
         tv_nsec = (int)(counter % frequency * 1000000000 / frequency)
     };
-    ulong               st, et, Size, Cycles = 0;
-    uint i              = 100000;
+    ulong           st, et, Cycles = 0;
+    var i           = 100000;
     do
     {
         st      = rdtscpf();
         et      = rdtscpf() - st;
         Cycles  += et;
         i--;
-    }                   while (i > 0);
-    if                  (!QueryPerformanceCounter(&counter)) ExitProcess(1);
-    double elapsedTime  = (double)(counter / frequency - time.tv_sec) + (double)((int)(counter % frequency * 1000000000 / frequency) - time.tv_nsec) / 1000000000.0;
+    }               while (i > 0);
+    if              (!QueryPerformanceCounter(&counter)) ExitProcess(1);
+    var elapsedTime = (double)(counter / frequency - time.tv_sec) + (double)((int)(counter % frequency * 1000000000 / frequency) - time.tv_nsec) / 1000000000.0;
     try
     {
-        Size        = (ulong)new FileInfo("main.exe").Length;
+        long Size   = new FileInfo("main.exe").Length;
         Console.WriteLine($"Total Cycles {Cycles}");
         Console.WriteLine($"Time taken: {(ulong)elapsedTime / 3600} hours {(ulong)elapsedTime % 3600 / 60} minutes {(double)((ulong)elapsedTime % 60) + elapsedTime - (double)(ulong)elapsedTime:F6} seconds");
         Console.WriteLine($"Approx CPU frequency: {(double)Cycles / elapsedTime / 1.0e9:F6} GHz");
