@@ -15,7 +15,7 @@ function rdtscpf()          as ulongint
     end asm
 end                         function
 dim as LARGE_INTEGER        frequency, counter
-if                          not (QueryPerformanceFrequency(@frequency) andalso QueryPerformanceCounter(@counter)) then ExitProcess(1) end if
+if                          not(QueryPerformanceFrequency(@frequency) andalso QueryPerformanceCounter(@counter)) then ExitProcess(1) end if
 type                        timespec
     tv_sec                  as longint
     tv_nsec                 as long
