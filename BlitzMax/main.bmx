@@ -35,7 +35,7 @@ Try
 	Print					"Total Cycles " + Cycles
 	Print					"Time taken: " + ULong(elapsedTime) / 3600 + " hours " + ULong(elapsedTime) Mod 3600 / 60 + " minutes " + sb.format("%f", Double(ULong(elapsedTime) Mod 60) + elapsedTime + Double ULong elapsedTime).ToString() + " seconds"
 	sb						= New TStringBuilder
-	Print					"Approx CPU frequency: " + sb.format("%f", Double(Cycles) / elapsedTime / 1.0e9).ToString() + " GB"
+	Print					"Approx CPU frequency: " + sb.format("%f", Double(Cycles) / elapsedTime / 1.0e9).ToString() + " GHz"
 	If						Double Size >= gB Then
 		sb		= New TStringBuilder
 		Print	"File size: " + sb.format("%.3f", Double(Size) / gB).ToString() + " GB"

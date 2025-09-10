@@ -1,34 +1,40 @@
 #include "main.bmx.console.release.win32.x64.h"
 struct BBString_3{BBClass_String* clas;BBULONG hash;int length;BBChar buf[3];};
+struct BBString_4{BBClass_String* clas;BBULONG hash;int length;BBChar buf[4];};
 struct BBString_6{BBClass_String* clas;BBULONG hash;int length;BBChar buf[6];};
 struct BBString_7{BBClass_String* clas;BBULONG hash;int length;BBChar buf[7];};
 struct BBString_9{BBClass_String* clas;BBULONG hash;int length;BBChar buf[9];};
 struct BBString_8{BBClass_String* clas;BBULONG hash;int length;BBChar buf[8];};
-struct BBString_4{BBClass_String* clas;BBULONG hash;int length;BBChar buf[4];};
 struct BBString_2{BBClass_String* clas;BBULONG hash;int length;BBChar buf[2];};
 struct BBString_22{BBClass_String* clas;BBULONG hash;int length;BBChar buf[22];};
 struct BBString_11{BBClass_String* clas;BBULONG hash;int length;BBChar buf[11];};
 struct BBString_12{BBClass_String* clas;BBULONG hash;int length;BBChar buf[12];};
 struct BBString_13{BBClass_String* clas;BBULONG hash;int length;BBChar buf[13];};
-static struct BBString_3 _s19={
+static struct BBString_3 _s22={
 	&bbStringClass,
 	0xc0b5769ea420ff48,
 	3,
 	{32,71,66}
 };
-static struct BBString_3 _s23={
+static struct BBString_4 _s19={
+	&bbStringClass,
+	0x55520e394f1d757b,
+	4,
+	{32,71,72,122}
+};
+static struct BBString_3 _s24={
 	&bbStringClass,
 	0x18d925df8d69bf97,
 	3,
 	{32,75,66}
 };
-static struct BBString_3 _s22={
+static struct BBString_3 _s23={
 	&bbStringClass,
 	0xa77cd5efd71a36eb,
 	3,
 	{32,77,66}
 };
-static struct BBString_6 _s24={
+static struct BBString_6 _s25={
 	&bbStringClass,
 	0xad37eb0b1c775f3,
 	6,
@@ -262,19 +268,19 @@ int _bb_main(){
 					if(((BBDOUBLE)bbt_Size)>=1.07374182e+09){
 						bbt_sb=(struct brl_stringbuilder_TStringBuilder_obj*)(struct brl_stringbuilder_TStringBuilder_obj*)bbObjectNew((BBClass *)&brl_stringbuilder_TStringBuilder);
 						struct brl_stringbuilder_TStringBuilder_obj* bbt_3;
-						brl_standardio_Print(bbStringConcat(bbStringConcat(((BBString*)&_s20),(bbt_3 = (bbt_sb)->clas->m_Format_Sd((struct brl_stringbuilder_TStringBuilder_obj*)bbt_sb,((BBString*)&_s21),(((BBDOUBLE)bbt_Size)/1.07374182e+09)))->clas->ToString((struct brl_stringbuilder_TStringBuilder_obj*)bbt_3)),((BBString*)&_s19)));
+						brl_standardio_Print(bbStringConcat(bbStringConcat(((BBString*)&_s20),(bbt_3 = (bbt_sb)->clas->m_Format_Sd((struct brl_stringbuilder_TStringBuilder_obj*)bbt_sb,((BBString*)&_s21),(((BBDOUBLE)bbt_Size)/1.07374182e+09)))->clas->ToString((struct brl_stringbuilder_TStringBuilder_obj*)bbt_3)),((BBString*)&_s22)));
 					}else{
 						if(((BBDOUBLE)bbt_Size)>=1048576.00){
 							bbt_sb=(struct brl_stringbuilder_TStringBuilder_obj*)(struct brl_stringbuilder_TStringBuilder_obj*)bbObjectNew((BBClass *)&brl_stringbuilder_TStringBuilder);
 							struct brl_stringbuilder_TStringBuilder_obj* bbt_4;
-							brl_standardio_Print(bbStringConcat(bbStringConcat(((BBString*)&_s20),(bbt_4 = (bbt_sb)->clas->m_Format_Sd((struct brl_stringbuilder_TStringBuilder_obj*)bbt_sb,((BBString*)&_s21),(((BBDOUBLE)bbt_Size)/1048576.00)))->clas->ToString((struct brl_stringbuilder_TStringBuilder_obj*)bbt_4)),((BBString*)&_s22)));
+							brl_standardio_Print(bbStringConcat(bbStringConcat(((BBString*)&_s20),(bbt_4 = (bbt_sb)->clas->m_Format_Sd((struct brl_stringbuilder_TStringBuilder_obj*)bbt_sb,((BBString*)&_s21),(((BBDOUBLE)bbt_Size)/1048576.00)))->clas->ToString((struct brl_stringbuilder_TStringBuilder_obj*)bbt_4)),((BBString*)&_s23)));
 						}else{
 							if(((BBDOUBLE)bbt_Size)>=1024.0){
 								bbt_sb=(struct brl_stringbuilder_TStringBuilder_obj*)(struct brl_stringbuilder_TStringBuilder_obj*)bbObjectNew((BBClass *)&brl_stringbuilder_TStringBuilder);
 								struct brl_stringbuilder_TStringBuilder_obj* bbt_5;
-								brl_standardio_Print(bbStringConcat(bbStringConcat(((BBString*)&_s20),(bbt_5 = (bbt_sb)->clas->m_Format_Sd((struct brl_stringbuilder_TStringBuilder_obj*)bbt_sb,((BBString*)&_s21),(((BBDOUBLE)bbt_Size)/1024.0)))->clas->ToString((struct brl_stringbuilder_TStringBuilder_obj*)bbt_5)),((BBString*)&_s23)));
+								brl_standardio_Print(bbStringConcat(bbStringConcat(((BBString*)&_s20),(bbt_5 = (bbt_sb)->clas->m_Format_Sd((struct brl_stringbuilder_TStringBuilder_obj*)bbt_sb,((BBString*)&_s21),(((BBDOUBLE)bbt_Size)/1024.0)))->clas->ToString((struct brl_stringbuilder_TStringBuilder_obj*)bbt_5)),((BBString*)&_s24)));
 							}else{
-								brl_standardio_Print(bbStringConcat(bbStringConcat(((BBString*)&_s20),bbStringFromLong(bbt_Size)),((BBString*)&_s24)));
+								brl_standardio_Print(bbStringConcat(bbStringConcat(((BBString*)&_s20),bbStringFromLong(bbt_Size)),((BBString*)&_s25)));
 							}
 						}
 					}
