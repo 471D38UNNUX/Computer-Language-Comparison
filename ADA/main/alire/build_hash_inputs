@@ -1,0 +1,4 @@
+external:LIBRARY_TYPE=default
+external:MAIN_LIBRARY_TYPE=default
+profile:main=RELEASE
+switches:main=-O3,-fdata-sections,-ffunction-sections,-gnatW8,-gnatn

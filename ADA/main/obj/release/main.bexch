@@ -1,0 +1,21 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+D:\Assembly Project\Programming Language\ADA\main\main.gpr
+20250711130832 2b7709286d97f8f43d843e3e39d6d46c
+D:\Assembly Project\Programming Language\ADA\main\config\main_config.gpr
+20250812062444 e5d36d7fdd768501a20d0423a0f1a547
+[BOUND OBJECT FILES]
+D:\Assembly Project\Programming Language\ADA\main\obj\release\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LD:\Assembly Project\Programming Language\ADA\main\obj\release\
+-LD:\Assembly Project\Programming Language\ADA\main\obj\release\
+-LC:/users/user/appdata/local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/lib/gcc/x86_64-w64-mingw32/15.1.0/adalib/
+-static
+-lkernel32
+C:/users/user/appdata/local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/lib/gcc/x86_64-w64-mingw32/15.1.0/adalib/libgnat.a
+-Wl,--stack=0x2000000

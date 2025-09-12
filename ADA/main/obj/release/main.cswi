@@ -1,0 +1,10 @@
+20250812062450
+-c
+-x
+ada
+-gnatA
+-O3
+-gnatn
+-ffunction-sections
+-fdata-sections
+-gnatW8

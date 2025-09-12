@@ -1,0 +1,97 @@
+# THIS FILE IS GENERATED. DO NOT EDIT.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "gnat_native"
+fulfilment = "solved"
+pinned = false
+transitivity = "unknown"
+versions = "=15.1.2"
+[solution.state.release]
+auto-gpr-with = false
+description = "The GNAT Ada compiler - Native"
+licenses = "GPL-3.0-or-later AND GPL-3.0-or-later WITH GCC-exception-3.1"
+maintainers = [
+"Fabien Chouteau <chouteau@adacore.com>",
+"CÃÂ©sar Sagaert <sagaert@adacore.com>",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+"AldanTanneo",
+]
+name = "gnat_native"
+provides = [
+"gnat=15.1.2",
+]
+version = "15.1.2"
+website = "https://github.com/alire-project/GNAT-FSF-builds"
+[solution.state.release.configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+[solution.state.release.environment]
+[solution.state.release.environment.LD_LIBRARY_PATH]
+prepend = "${CRATE_ROOT}/lib"
+[solution.state.release.environment.LD_RUN_PATH]
+prepend = "${CRATE_ROOT}/lib"
+[solution.state.release.environment.LIBRARY_PATH]
+prepend = "${CRATE_ROOT}/lib"
+[solution.state.release.environment.PATH]
+prepend = "${CRATE_ROOT}/bin"
+[solution.state.release.origin]
+binary = true
+hashes = [
+"sha256:85aa16320417276e0e1050a91830d31b4e1ad8adfc766a568150d9258c3bded4",
+]
+url = "https://github.com/alire-project/GNAT-FSF-builds/releases/download/gnat-15.1.0-2/gnat-x86_64-windows64-15.1.0-2.tar.gz"
+[[solution.state]]
+crate = "gprbuild"
+fulfilment = "solved"
+pinned = false
+transitivity = "unknown"
+versions = "=25.0.1"
+[solution.state.release]
+auto-gpr-with = false
+description = "The GPRBuild Ada/multilanguage build tool"
+licenses = "GPL-3.0-only WITH GCC-exception-3.1"
+long-description = "GPRbuild is a generic build tool designed for the construction of large multi-language systems organized into subsystems and libraries.\nIt is well-suited for compiled languages supporting separate compilation, such as Ada, C, C++ and Fortran.\n"
+maintainers = [
+"Fabien Chouteau <chouteau@adacore.com>",
+"CÃÂ©sar Sagaert <sagaert@adacore.com>",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+"AldanTanneo",
+]
+name = "gprbuild"
+tags = [
+"gpr",
+"gprbuild",
+"tool",
+"tools",
+"project",
+]
+version = "25.0.1"
+website = "https://docs.adacore.com/gprbuild-docs/html/gprbuild_ug.html"
+[solution.state.release.configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+[solution.state.release.environment]
+[solution.state.release.environment.PATH]
+prepend = "${CRATE_ROOT}/bin"
+[solution.state.release.origin]
+binary = true
+hashes = [
+"sha256:1bcdf5e81854baaa293a0661a56b0d842c94c0d3975d7ab4a025e6939a98316a",
+]
+url = "https://github.com/alire-project/GNAT-FSF-builds/releases/download/gprbuild-25.0.0-1/gprbuild-x86_64-windows64-25.0.0-1.tar.gz"
+
